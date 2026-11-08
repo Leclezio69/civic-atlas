@@ -126,17 +126,18 @@ async function mountDeck(container){
   container.setAttribute('tabindex','0');
   updateControls();
   try{
-    const {getDocument,GlobalWorkerOptions}=await import('./vendor/pdfjs/pdf.min.mjs');
-    GlobalWorkerOptions.workerSrc=new URL('./vendor/pdfjs/pdf.worker.min.mjs',import.meta.url).href;
-    pdfDoc=await getDocument(deckPdf).promise;
+    await import('./vendor/pdfjs/pdf.min.mjs');
+    const pdfjsLib=globalThis.pdfjsLib;
+    if(!pdfjsLib?.getDocument)throw new Error('pdf.js not available');
+    pdfjsLib.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdfjs/pdf.worker.min.mjs',import.meta.url).href;
+    pdfDoc=await pdfjsLib.getDocument(deckPdf).promise;
     loading.hidden=true;
     renderPage();
   }catch(e){
-    loading.textContent='Loading PDF viewer…';
-    // Fallback to iframe
+    console.warn('pdf.js failed, using iframe fallback:',e?.message);
+    loading.hidden=true;
     const wrap=container.querySelector('.deck-canvas-wrap');
     wrap.innerHTML='<iframe src="'+deckPdf+'#page=1&view=FitH&toolbar=0" class="deck-iframe" title="'+esc(deckTitle)+'"></iframe>';
-    loading.hidden=true;
     prev.onclick=()=>{if(page>1){page--;wrap.querySelector('iframe').src=deckPdf+'#page='+page+'&view=FitH&toolbar=0';updateControls()}};
     next.onclick=()=>{if(page<deckPages){page++;wrap.querySelector('iframe').src=deckPdf+'#page='+page+'&view=FitH&toolbar=0';updateControls()}};
   }
