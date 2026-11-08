@@ -203,7 +203,7 @@ function render(){
       speak.setAttribute('aria-label','Stop reading');
       const file=guideAudioFile();
       const audio=new Audio(file);
-      audio.addEventListener('canplaythrough',()=>{guideAudio=audio;audio.play().catch(()=>{})},{once:true});
+      guideAudio=audio;
       audio.addEventListener('ended',()=>{guideAudio=null;speak.setAttribute('aria-label','Read this step aloud')});
       audio.addEventListener('error',()=>{
         guideAudio=null;
@@ -213,6 +213,7 @@ function render(){
         speech.onend=()=>{speech=null;speak.setAttribute('aria-label','Read this step aloud')};
         window.speechSynthesis.speak(speech);
       });
+      audio.play().catch(()=>{});
     }
   }else{
     guide.querySelector('form').onsubmit=async e=>{
