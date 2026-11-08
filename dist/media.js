@@ -43,17 +43,16 @@ function observeSections(root){
 
 // ── Infographic carousel with transitions & swipe ──
 function mountInfoCarousel(container){
-  let idx=0,startX=0,dragging=false;
+  let idx=0,startX=0,dragging=false,first=true;
   function render(dir){
     const info=infographics[idx];
-    const slide=container.querySelector('.info-slide');
-    if(slide&&!reduced()){
-      slide.classList.add(dir>0?'slide-out-left':'slide-out-right');
-      slide.addEventListener('animationend',()=>build(),{once:true});
-    } else build();
+    // Always call build directly — no animation gating
+    build();
     function build(){
+      const animate=!first&&!reduced()&&dir!==0;
+      first=false;
       container.innerHTML=
-        '<div class="info-slide '+(reduced()?'':'slide-in-'+(dir>0?'right':'left'))+'">'+
+        '<div class="info-slide '+(animate?'slide-in-'+(dir>0?'right':'left'):'')+'">'+
         '<div class="info-display"><div class="info-img-wrap"><img src="assets/'+esc(info.file)+'" alt="'+esc(info.title)+'" draggable="false"></div>'+
         '<div class="info-detail"><span class="minor-label">INFOGRAPHIC '+(idx+1)+' OF '+infographics.length+'</span>'+
         '<h3>'+esc(info.title)+'</h3><p>'+esc(info.body)+'</p>'+
