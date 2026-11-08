@@ -1,0 +1,51 @@
+.agent-page{display:grid;grid-template-columns:minmax(225px,.7fr) minmax(0,1.8fr);gap:clamp(24px,3.7vw,60px);padding-block:clamp(26px,4vw,58px);align-items:start;min-height:73vh}
+.agent-intro{padding:12px 0 0;max-width:340px}
+.agent-portrait{display:block;width:108px;height:108px;object-fit:cover;border-radius:50%;border:1px solid #c2c0b3;margin:30px 0 22px}
+.agent-intro h1{font-size:clamp(42px,4.5vw,72px);line-height:1.06}
+.agent-intro p{color:var(--muted);font-size:16px;line-height:1.65;margin-top:14px;max-width:32ch}
+.agent-back{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-size:13px;line-height:1.5;margin-top:24px;text-decoration:underline;text-underline-offset:3px}
+.agent-back svg{flex:none}
+#agent-chat{min-width:0;overflow:hidden;background:var(--cream);border:1px solid #cdd3c8;border-radius:12px;box-shadow:0 12px 40px #142b2210}
+.milo-chat{display:flex;flex-direction:column;height:clamp(540px,73dvh,820px)}
+.milo-tools,.milo-compose-bar,.milo-tools label{display:flex;align-items:center;gap:10px}
+.milo-tools{justify-content:space-between;padding:14px 22px;background:#f1f3eb;border-bottom:1px solid var(--line)}
+.milo-tools label,.milo-options,.milo-startover{color:var(--green);font-size:13px;font-weight:600}
+.milo-tools select,.milo-settings select{max-width:100%;padding:6px 8px;font-size:13px;color:var(--ink);background:var(--cream);border:1px solid #cbd3c7;border-radius:5px}
+.milo-startover,.milo-copy,.milo-retry{text-decoration:underline;text-underline-offset:3px}
+.milo-transcript{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable;padding:24px clamp(16px,3vw,38px)}
+.milo-welcome{margin:clamp(2px,3vh,32px) auto 10px;max-width:650px}
+.milo-welcome h2{font-size:clamp(28px,3vw,40px);line-height:1.13}
+.milo-welcome p,.milo-error p{font-size:14px;line-height:1.55;color:var(--muted);margin:8px 0}
+.milo-prompts{display:grid;gap:8px;margin-top:20px}
+.milo-prompts button{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--line);border-radius:6px;text-align:left;color:var(--green);font-size:14px;background:#f8f8f1}
+.milo-prompts button:hover,.milo-prompts button:focus-visible{background:#eaf0e4;border-color:#aab9a4}.milo-prompts svg{flex:none}
+.milo-compose{padding:14px clamp(16px,3vw,30px);border-top:1px solid var(--line);background:#f4f5ee;max-height:60%;overflow:auto}
+.milo-form textarea{font:15px/1.45 var(--sans);min-height:64px;max-height:135px;resize:vertical;padding:10px 12px;width:100%}
+.milo-compose-bar{justify-content:space-between;margin-top:6px}.milo-options{display:flex;align-items:center;gap:4px;padding:4px 0;font-weight:500}
+.milo-send,.milo-stop{color:white;background:var(--green);font-size:14px;font-weight:650;border-radius:5px;padding:8px 17px}.milo-stop{background:#654d32}
+.milo-engine-note,.milo-status,.milo-settings small,.milo-hint{display:block;font-size:12px;line-height:1.45;color:var(--muted);margin:7px 0 0}.milo-status{color:var(--green)}.milo-status:empty{display:none}
+.milo-progress{width:100%;height:6px;display:block;margin:6px 0 0}
+.milo-settings{padding:10px 0 2px;border-top:1px solid var(--line);margin-top:9px}.milo-settings label{display:block;font-size:13px;font-weight:600}.milo-settings select,.milo-settings input{display:block;max-width:100%;font-size:13px;margin:4px 0 8px}
+.milo-settings a,.milo-sources a,.milo-markdown a{text-decoration:underline;text-underline-offset:2px;color:var(--green)}.milo-settings a{font-size:13px}
+.milo-apikey{width:100%;padding:7px 10px;font:13px/1.4 var(--mono);border:1px solid #cbd3c7;border-radius:5px;background:var(--cream)}
+.milo-turn{max-width:780px;margin-inline:auto}.milo-turn+.milo-turn{margin-top:24px}
+.milo-user{background:#edf1e5;border-radius:8px;padding:10px 15px;margin:0 0 16px auto;width:fit-content;max-width:90%;color:#294336}.milo-user>span,.milo-byline{color:#725c38;font:10px/1.45 var(--mono);letter-spacing:.055em;text-transform:uppercase}
+.milo-user p{font-size:15px;line-height:1.5;margin-top:2px;white-space:pre-wrap;overflow-wrap:anywhere}
+.milo-markdown{font:15px/1.65 var(--sans);color:var(--ink);overflow-wrap:anywhere}
+.milo-markdown h3,.milo-markdown h4,.milo-markdown h5,.milo-markdown h6{margin:12px 0 5px;line-height:1.25;color:#213b2d}
+.milo-markdown h3{font-size:28px}.milo-markdown h4,.milo-markdown h5,.milo-markdown h6{font:650 16px/1.4 var(--sans)}
+.milo-markdown p,.milo-markdown ul,.milo-markdown ol,.milo-markdown pre,.milo-markdown blockquote{margin:6px 0 9px}
+.milo-markdown ol,.milo-markdown ul{padding-left:22px}.milo-markdown li{margin:4px 0}.milo-markdown li p{margin:2px 0}.milo-markdown code{font:13px/1.5 var(--mono);background:#eef0e6;padding:1px 3px;border-radius:2px}
+.milo-markdown pre{padding:10px;background:#eef0e6;overflow:auto;white-space:pre}.milo-markdown pre code{padding:0}
+.milo-markdown blockquote,.milo-sources blockquote{padding-left:12px;border-left:2px solid #ae9876;color:#4a5c50}.milo-table{overflow:auto}.milo-markdown table{border-collapse:collapse;font-size:14px;width:100%}.milo-markdown td,.milo-markdown th{padding:6px;border:1px solid var(--line);text-align:left}
+.milo-ref{font:12px var(--mono)}.milo-sources{font-size:13px;margin:7px 0}.milo-sources summary{cursor:pointer;color:#675b41}.milo-sources a{display:block;margin:6px 0}.milo-sources blockquote{margin:6px 0 10px;font:14px/1.5 var(--sans)}
+.milo-copy,.milo-retry{color:var(--green);font-size:13px;padding:5px 0;margin-right:10px}
+.milo-error{padding:9px 13px;background:#f4ebde;border-left:2px solid #ab8657;margin:6px 0}
+@media(max-width:780px){
+  .agent-page{grid-template-columns:minmax(0,1fr);gap:20px;padding-block:24px}.agent-intro{display:grid;grid-template-columns:70px 1fr;align-items:center;gap:0 16px;max-width:none;padding:0}
+  .agent-portrait{width:70px;height:70px;grid-column:1;grid-row:1/3;margin:0}.agent-intro .eyebrow,.agent-intro h1{grid-column:2}.agent-intro p,.agent-back{grid-column:1/-1;max-width:58ch;margin-top:9px}.agent-intro h1{font-size:42px}
+  .milo-chat{height:clamp(480px,67dvh,690px)}.milo-transcript{padding:15px}.milo-tools,.milo-compose{padding:10px 14px}
+}
+@media(max-width:400px){
+  .milo-tools label,.milo-tools select,.milo-startover{font-size:12px}.milo-tools,.milo-tools label{gap:4px}.agent-intro p{font-size:14px}.milo-prompts button{padding:9px}
+}

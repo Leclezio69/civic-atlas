@@ -1,0 +1,16 @@
+@wllama/wllama 3.8.1 and @wllama/wllama-compat 3.8.1
+Upstream: https://github.com/ngxson/wllama
+License: MIT. See LICENCE and llama-cpp-LICENSE.
+Engine revision: llama.cpp b11364-46ca246
+
+Official npm archives and integrity values:
+https://registry.npmjs.org/@wllama/wllama/-/wllama-3.8.1.tgz
+sha512-Pl7BEJhPU8OHnV/yhn3DFZYhLLOdSHh+4TND79WCftHnlUAdQPAsyc/CfIOY+4mVxvf5VW3Xw3Uf7BBfotS1gw==
+https://registry.npmjs.org/@wllama/wllama-compat/-/wllama-compat-3.8.1.tgz
+sha512-IvmjrJ+JzDbt3w1FQq1yAmnFEiLGCceowK2Q80zW+k9ChFkPBM1ByX/9xm2xVxyd8MHC50VpuDo6SDE83k9kIQ==
+
+SHA-256 of the unmodified distributed runtime files:
+e5506753e41a59c11f61f2c52422045be9fc76e32a7e47f037aaad5df4ec723e  index.js
+551f13439366eff11e057b1b91fe46a7fdac29d56d67372d4c5f19a549dfe70c  wllama.wasm
+2649eeb408988841c372e54805adfa25aed5d02f850c09add78c2f3ac0f3fce1  compat/wllama.js
+2db3f67d0bcc19cdf8f14f129e46cab691bff898954808f8a2dc4c586eb5bb68  compat/wllama.wasm

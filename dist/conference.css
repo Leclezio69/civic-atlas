@@ -1,0 +1,131 @@
+.case-banner {
+  background-image:linear-gradient(90deg,#102724f5 5%,#102724e8 35%,#18392e66 75%),url(assets/benefits-casework-p12.webp);
+  background-position:center 44%;
+}
+.case-banner p {max-width:660px}
+.case-hero-meta, .case-nav, .case-section-title, .exhibit-meta, .case-scorehead, .rubric-grid article>div, .conference-bottom, .field-case {display:flex;align-items:center}
+.case-hero-meta {gap:20px;flex-wrap:wrap;margin-top:18px;color:#e2dcc9}
+.case-hero-meta span {display:flex;align-items:center;gap:7px;font-size:12px}
+.conference {padding-top:24px;padding-bottom:55px}
+.case-nav {gap:6px;margin:0 0 28px;border-bottom:1px solid var(--line);padding-bottom:14px;flex-wrap:wrap;scroll-margin-top:22px}
+.case-nav button {display:flex;gap:9px;align-items:center;border-radius:4px;padding:8px 12px;color:#435749;font-weight:600;font-size:13px}
+.case-nav button[aria-current] {background:var(--green);color:#fffaf0}
+.case-nav button>span {font:10px var(--mono);color:#906b3b}
+.case-nav button[aria-current]>span {color:var(--gold)}
+.case-columns {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(22px,3.8vw,52px);align-items:start}
+.case-section-title {align-items:start;flex-direction:column;gap:6px;margin-bottom:14px}
+.conference h2 {font-size:clamp(28px,2.6vw,38px)}
+.exhibit-choices {display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:11px}
+.exhibit-choices button {display:flex;align-items:center;gap:8px;text-align:left;font-size:12px;line-height:1.4;color:#435448;border:1px solid #c5cebf;background:#f1f3eb;padding:9px;border-radius:4px}
+.exhibit-choices button>span {font:10px var(--mono);color:#805b26}
+.exhibit-choices button[aria-pressed=true] {background:#dfe8db;border-color:#7b957b;color:#1c392b}
+.exhibit-sheet,.case-work,.rubric-grid article {border:1px solid var(--line);background:var(--cream);border-radius:7px;padding:20px}
+.exhibit-sheet {border-top:3px solid #b08a50}
+.exhibit-meta {gap:10px;justify-content:space-between;font:11px var(--mono);color:#6c755f}
+.exhibit-meta b {padding:3px 7px;background:#f0e7d5;border-radius:3px;color:#6f4e24}
+.exhibit-sheet h3 {font-size:27px;margin:12px 0 3px}
+.exhibit-sheet>small {font-size:12px;color:var(--muted)}
+.exhibit-sheet p,.case-work>p,.case-update p,.case-consequences p,.milo-coach p,.case-method p {margin:11px 0;color:#45564e;font-size:15px;line-height:1.65}
+.file-limit {padding:11px 13px;border-left:2px solid #9f986e;background:#f2f1e6;color:#505e50;font-size:13px}
+.file-limit strong {display:block;margin-bottom:4px;color:#4b533e;font-size:12px}
+.case-work {padding:24px}
+.case-work h2 {margin-top:6px}
+.case-work .case-footnote,.case-method p,.conference-bottom>span {font-size:12px;color:var(--muted)}
+.conference-fields,.conference-radios {padding:0;border:0;margin:17px 0;min-width:0}
+.conference-radios legend,.case-select>span {display:block;font-size:13px;line-height:1.45;font-weight:650;margin-bottom:7px}
+.conference-radios>div {display:flex;gap:7px;flex-wrap:wrap}
+.conference-radios label {display:inline-flex;align-items:center;gap:6px;border:1px solid #c7cfc0;padding:6px 10px;border-radius:4px;font-size:13px;cursor:pointer}
+.conference-radios label:has(:checked) {background:#e8eee3;border-color:#6d866d}
+.conference-radios input {accent-color:var(--green);margin:0}
+.case-select {display:block;margin:14px 0 18px}
+.case-select select {width:100%;max-width:100%;font-size:13px;min-height:41px;padding:8px 28px 8px 10px;text-overflow:ellipsis}
+.case-select select:disabled {background:#ecefe6;color:#515f52}
+.case-work form>.btn {margin-top:2px}
+.case-update {display:grid;grid-template-columns:1fr 2fr;align-items:center;gap:23px;padding:16px 20px;background:#e9ecdf;border-left:3px solid #9d8156;border-radius:0 5px 5px 0;margin-bottom:23px}
+.case-update h2 {font-size:29px;margin-top:3px}
+.case-update p {font-size:14px;margin:0}
+.decision-columns {grid-template-columns:minmax(240px,.64fr) minmax(0,1.36fr)}
+.case-method {background:#eaf0e5;padding:16px 18px;margin-top:14px;border-radius:5px;font-size:13px}
+.case-method p {margin:4px 0 0}
+.case-columns .exhibit-sheet>.text-link {margin-top:14px}
+.conference-fields {padding-top:10px;margin-top:20px;border-top:1px solid var(--line)}
+.conference-fields>legend {padding:0 10px 0 0;font:22px var(--serif)}
+.conference-fields .case-select:last-child {margin-bottom:0}
+.case-save {font-size:11px;margin-left:10px;color:var(--muted)}
+.case-scorehead {justify-content:space-between;gap:15px;padding:22px;background:#233e34;color:#fffbed;border-radius:6px}
+.case-scorehead .minor-label {color:#e0bc85}
+.case-scorehead h2 {margin:6px 0}
+.case-scorehead p {font-size:14px;color:#dbe1d3}
+.case-score {white-space:nowrap;font:43px var(--serif);color:#f4cd91}
+.case-score small {font:13px var(--sans);color:#e5dfc7}
+.panel-blockers {margin-top:15px;padding:15px 18px;background:#f4e9da;border-left:3px solid #aa7750;color:#61452b}
+.panel-blockers ul,.rubric-grid ul {padding-left:18px;font-size:13px;line-height:1.6;margin:7px 0 0}
+.case-consequences {padding:20px 0 9px}
+.case-consequences p {margin:6px 0}
+.milo-coach {display:flex;align-items:center;gap:14px;border:1px solid #c9d5c1;border-radius:5px;background:#eaf0e3;padding:12px 17px;margin:12px 0 20px}
+.milo-coach img {width:48px;height:48px;border-radius:50%;background:#e4dcc7}
+.milo-coach p {margin:3px 0;font-size:14px}
+.rubric-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:16px}
+.rubric-grid article {padding:16px}
+.rubric-grid article>div,.conference-bottom,.field-case {justify-content:space-between;gap:10px}
+.rubric-grid h3 {font-size:22px}
+.rubric-grid article b {white-space:nowrap;font:11px var(--mono);color:#6f512d}
+.rubric-grid article .cite {margin-top:10px}
+.conference-bottom {border-top:1px solid var(--line);padding-top:17px;margin-top:27px;flex-wrap:wrap}
+.field-case {margin:-12px 0 27px;flex-wrap:wrap}
+@media(max-width:830px){.case-columns{gap:18px}.exhibit-choices{grid-template-columns:1fr}.rubric-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){
+  .conference {padding-top:15px}
+  .case-nav {display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:20px}
+  .case-nav button {font-size:12px;padding:7px}
+  .case-columns,.case-update,.rubric-grid {grid-template-columns:1fr}
+  .case-work,.exhibit-sheet {padding:16px}
+  .exhibit-choices {grid-template-columns:1fr 1fr}
+  .exhibit-choices button {font-size:11px;padding:7px}
+  .case-update {gap:6px;padding:13px 15px}
+  .case-scorehead {padding:15px;align-items:start}
+  .case-score {font-size:31px}
+  .case-save {display:block;margin:6px 0}
+  .case-hero-meta {gap:10px}
+}
+
+/* Applied case workshops */
+.practice-shelf {padding:7px 0 36px}
+.practice-links {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.practice-links a {display:flex;align-items:center;gap:12px;background:var(--cream);border:1px solid var(--line);border-radius:6px;overflow:hidden;padding-right:12px}
+.practice-links a:hover,.practice-invite:hover {border-color:#859786}
+.practice-links img {width:27%;align-self:stretch;object-fit:cover;min-height:100px}
+.practice-links h3 {font-size:21px;line-height:1.15;margin:3px 0}
+.practice-links a>svg,.practice-invite>svg {margin-left:auto;color:var(--green)}
+.practice-links .minor-label {font-size:8px}
+.practice-mandate {display:flex;flex-wrap:wrap;gap:10px 24px;margin-bottom:14px;font-size:13px;color:#4e6255}
+.practice-mandate span {display:inline-flex;align-items:center;gap:7px}
+.practice-stages {display:flex;flex-wrap:wrap;gap:5px;border-bottom:1px solid var(--line);margin:0 0 22px;padding-bottom:12px;scroll-margin-top:12px}
+.practice-stages span {display:flex;align-items:center;gap:8px;background:#eceee5;color:#516357;padding:7px 11px;border-radius:4px;font-size:12px}
+.practice-stages b {font:10px var(--mono)}
+.practice-stages [aria-current=step] {background:var(--green);color:white}
+.practice-options {border:0;padding:0;min-width:0;margin:17px 0}
+.practice-options legend {padding:0;margin:0 0 9px;font-weight:650;font-size:14px;line-height:1.45}
+.practice-options label {position:relative;display:flex;align-items:center;gap:9px;padding:10px 12px;margin:6px 0;line-height:1.45;font-size:13px;background:#f6f7ef;border:1px solid #c9d2c3;border-radius:4px;cursor:pointer}
+.practice-options label:has(:checked) {border-color:#5e8065;background:#e8efe2}
+.practice-options label:has(:focus-visible) {outline:2px solid var(--accent);outline-offset:1px}
+.practice-options input {accent-color:var(--green);margin:0;width:15px;height:15px;flex-shrink:0}
+.practice-options b {font:10px var(--mono);color:#8c6b41}
+.practice-options label:hover {border-color:#829a85}
+.initial-effect,.branch-receipt,.run-compare {border-left:3px solid #b19870;background:#edeede;padding:12px 15px;margin:15px 0}
+.initial-effect b {font-size:13px}
+.initial-effect p,.branch-receipt p,.run-compare p,.practice-trace p,.rubric-grid article p {font-size:14px;color:#44594b;line-height:1.6;margin:6px 0}
+.branch-receipt {margin-top:0}
+.branch-receipt h3,.run-compare h3 {font-size:24px;margin:5px 0}
+.practice-trace {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+.practice-trace>div {background:var(--cream);border:1px solid var(--line);border-radius:5px;padding:15px}
+.practice-trace small,.practice-meta {font-size:12px;color:var(--muted);line-height:1.5}
+.practice-meta {margin:10px 0}
+.practice-invite {display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:12px 14px;border:1px solid var(--line);border-radius:5px;background:#edf1e7;margin-top:18px}
+.practice-invite b {font:10px var(--mono);color:#785d31;text-transform:uppercase;letter-spacing:.06em}
+.practice-invite span {font-size:14px;font-weight:600}
+.field-reports {margin:12px 0 28px}
+.field-reports .record section+section {margin-top:15px;border-top:1px solid var(--line);padding-top:12px}
+.case-work #practice-heading:focus,.case-scorehead #practice-heading:focus {outline:none}
+@media(max-width:850px){.practice-links{grid-template-columns:1fr}.practice-links img{width:100px;height:76px;min-height:0}.practice-links h3{font-size:22px}.practice-trace{grid-template-columns:1fr}}
+@media(max-width:650px){.extended-tabs nav{display:grid;grid-template-columns:repeat(2,1fr);gap:0 6px}.extended-tabs nav a{justify-content:center}.practice-stages{display:grid;grid-template-columns:1fr 1fr}.practice-mandate{display:grid;gap:4px}.practice-links{gap:8px}.practice-shelf{padding-top:0;padding-bottom:25px}.practice-invite{grid-column:1/-1}.field-reports .record summary{flex-wrap:wrap}}
