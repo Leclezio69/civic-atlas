@@ -10,6 +10,7 @@ import {renderCommandRoom} from './command-room.js';
 import {renderCalibration} from './calibration.js';
 import {renderCapstone,gateDefs} from './capstone.js';
 import {renderConference,conferenceExport} from './case-conference.js';
+import {renderMedia} from './media.js';
 import {assess} from './resident-case.js';
 const main=document.querySelector('#main');
 const moduleBy=id=>modules.find(m=>m.id===id);
@@ -19,7 +20,7 @@ let cleanPage=()=>{},currentRoute='',activeInfo={kind:'home'},libraryFilter='All
 
 // Context-aware voice guide player
 const voiceGuide=(()=>{
-  const files={home:'voice-home',library:'voice-playbooks',module:'voice-module',simulator:'voice-simulator',capstone:'voice-capstone',agent:'voice-agent',fieldbook:'voice-fieldbook'};
+  const files={home:'voice-home',library:'voice-playbooks',module:'voice-module',simulator:'voice-simulator',capstone:'voice-capstone',agent:'voice-agent',fieldbook:'voice-fieldbook',media:'voice-home'};
   let audio=null,playing=false,currentFile='';
   function toggle(btn,section){
     const file='assets/'+(files[section]||files.home)+'.mp3';
@@ -38,7 +39,7 @@ const voiceGuide=(()=>{
   }
   return {toggle,stop};
 })();
-const navItems=[['Overview','#/','home'],['Playbooks','#/playbooks','library'],['City simulator','#/simulator','simulator'],['Capstone','#/capstone','capstone'],['AI agent','#/agent','agent']];
+const navItems=[['Overview','#/','home'],['Playbooks','#/playbooks','library'],['City simulator','#/simulator','simulator'],['Capstone','#/capstone','capstone'],['AI agent','#/agent','agent'],['Media','#/media','media']];
 function header(section){
   const current=section==='module'?'library':section;
   const links=navItems.map(([name,href,key])=>'<a href="'+href+'" '+(current===key?'aria-current="page"':'')+'>'+name+'</a>').join('');
@@ -359,7 +360,7 @@ function route(){
   const path=hash.replace(/^#\/?/,'').split('/').filter(Boolean);
   const [first,id,section]=path;
   const m=moduleBy(id);
-  const kind=!first?'home':first==='playbooks'?'library':first==='playbook'&&m?'module':['simulator','capstone','fieldbook','agent'].includes(first)?first:'missing';
+  const kind=!first?'home':first==='playbooks'?'library':first==='playbook'&&m?'module':['simulator','capstone','fieldbook','agent','media'].includes(first)?first:'missing';
   const tab=section==='fieldcase'&&fieldCaseFor(id)?'fieldcase':['workshop','sources'].includes(section)?section:'briefing';
   let origin;
   if(kind==='agent'&&['module','simulator','capstone'].includes(activeInfo.kind)){
@@ -374,8 +375,8 @@ function route(){
   const calibration=kind==='simulator'&&id==='calibration';
   activeInfo={kind,tab,m,notebook,classic,calibration};
   header(kind);
-  if(kind==='home')home();else if(kind==='library')library();else if(kind==='module')volume(m,tab);else if(kind==='simulator'){if(calibration)renderCalibration(main);else cleanPage=classic?renderSimulation(main):renderCommandRoom(main,id)}else if(kind==='capstone'){if(notebook)renderCapstone(main,modules);else renderConference(main,modules,()=>refreshGuide(activeInfo,modules))}else if(kind==='fieldbook')fieldbook();else if(kind==='agent')agentPage(origin);else main.innerHTML='<div class="wrap page"><h1>Page unavailable</h1><a class="btn primary" href="#/">Return to the overview</a></div>';
-  document.title=(kind==='module'?(tab==='fieldcase'?fieldCaseFor(m.id).title:pageTitles[m.id]):({home:'AI Government & Public Services',library:'Playbook library',simulator:'City simulator',capstone:'Portfolio capstone',fieldbook:'My fieldbook',agent:'AI agent — Ask Milo'}[kind]||'Page unavailable'))+
+  if(kind==='home')home();else if(kind==='library')library();else if(kind==='module')volume(m,tab);else if(kind==='simulator'){if(calibration)renderCalibration(main);else cleanPage=classic?renderSimulation(main):renderCommandRoom(main,id)}else if(kind==='capstone'){if(notebook)renderCapstone(main,modules);else renderConference(main,modules,()=>refreshGuide(activeInfo,modules))}else if(kind==='fieldbook')fieldbook();else if(kind==='agent')agentPage(origin);else if(kind==='media')renderMedia(main);else main.innerHTML='<div class="wrap page"><h1>Page unavailable</h1><a class="btn primary" href="#/">Return to the overview</a></div>';
+  document.title=(kind==='module'?(tab==='fieldcase'?fieldCaseFor(m.id).title:pageTitles[m.id]):({home:'AI Government & Public Services',library:'Playbook library',simulator:'City simulator',capstone:'Portfolio capstone',fieldbook:'My fieldbook',agent:'AI agent — Ask Milo',media:'Media & Resources'}[kind]||'Page unavailable'))+
     ' | Civic Atlas';
   if(currentRoute){
     main.focus({preventScroll:true})

@@ -1,0 +1,67 @@
+.media-hero{background:#122727 url(assets/district.webp) center 56%/cover;position:relative;isolation:isolate;color:#fffaf0;overflow:hidden}
+.media-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(8,22,22,.93) 0%,rgba(10,22,22,.78) 40%,rgba(10,22,22,.52) 70%,transparent 100%),linear-gradient(0deg,rgba(4,18,20,.55),transparent 40%)}
+.media-hero-inner{padding:clamp(36px,5vw,64px) 0;max-width:640px}
+.media-hero h1{font-size:clamp(44px,5vw,76px);margin:14px 0 12px;line-height:1.02;letter-spacing:-.05em}
+.media-hero p{font-size:16px;line-height:1.6;color:#dce3db;max-width:520px}
+.media-page{padding-bottom:64px}
+.media-section{margin-top:clamp(32px,4vw,56px);scroll-margin-top:20px}
+.media-section-head{margin-bottom:20px}
+.media-section-head h2{font-size:clamp(30px,3vw,44px);margin-top:8px;letter-spacing:-.035em}
+.media-caption{font-size:14px;line-height:1.6;color:var(--muted);margin-top:14px;max-width:700px}
+
+/* Video */
+.media-video-wrap{border-radius:10px;overflow:hidden;border:1px solid #c8cfc3;box-shadow:0 12px 40px rgba(20,43,34,.12)}
+.media-video{position:relative;padding-bottom:56.25%;height:0}
+.media-video iframe{position:absolute;inset:0;width:100%;height:100%}
+
+/* Infographics */
+.info-viewer{background:#fffef8;border:1px solid #cdd3c8;border-radius:10px;overflow:hidden;box-shadow:0 10px 36px rgba(20,43,34,.10)}
+.info-display{display:grid;grid-template-columns:1.3fr 1fr;min-height:420px}
+.info-img-wrap{background:#1a2e2b;display:flex;align-items:center;justify-content:center;padding:20px;overflow:hidden}
+.info-img-wrap img{width:100%;height:100%;object-fit:contain;border-radius:4px;max-height:480px}
+.info-detail{padding:clamp(20px,3vw,40px);display:flex;flex-direction:column;justify-content:center}
+.info-detail h3{font-size:clamp(22px,2.5vw,32px);line-height:1.15;margin:10px 0 14px;letter-spacing:-.025em}
+.info-detail p{font-size:14px;line-height:1.7;color:var(--muted)}
+.info-nav{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:20px}
+.info-nav .iconbtn{width:40px;height:40px;border:1px solid #c8cfc3;border-radius:6px;color:var(--green)}
+.info-nav .iconbtn:hover:not(:disabled){background:#e8ede3;border-color:#8aa08a}
+.info-counter{font:13px/1 var(--mono);color:var(--muted);min-width:44px;text-align:center}
+.info-dots{display:flex;gap:7px;margin-top:14px}
+.info-dot{width:9px;height:9px;border-radius:50%;background:#d4d9cf;border:0;padding:0;cursor:pointer;transition:background .2s}
+.info-dot.active{background:var(--green);transform:scale(1.2)}
+.info-dot:hover{background:#8aa08a}
+
+/* Slide deck */
+.deck-viewer{background:#fffef8;border:1px solid #cdd3c8;border-radius:10px;overflow:hidden;box-shadow:0 10px 36px rgba(20,43,34,.10)}
+.deck-frame{aspect-ratio:4/3;background:#f0f2ea}
+.deck-frame iframe{width:100%;height:100%;border:0}
+.deck-controls{display:flex;align-items:center;justify-content:center;gap:16px;padding:16px 20px;border-top:1px solid var(--line)}
+.deck-controls .btn{min-height:36px;padding:7px 14px;font-size:12px;gap:6px}
+.deck-counter{font:13px/1 var(--mono);color:var(--muted);min-width:120px;text-align:center}
+.deck-download{display:flex;align-items:center;gap:7px;padding:10px 20px;font-size:13px;border-top:1px solid var(--line)}
+
+/* Podcast */
+.podcast-player{background:#fffef8;border:1px solid #cdd3c8;border-radius:10px;overflow:hidden;padding:clamp(20px,3vw,32px);box-shadow:0 10px 36px rgba(20,43,34,.10)}
+.podcast-art{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.podcast-art img{width:64px;height:64px;border-radius:50%;border:2px solid #d4d9cf;object-fit:cover}
+.podcast-art h3{font-size:22px;margin:0 0 2px}
+.podcast-art small{font-size:12px;color:var(--muted)}
+.podcast-audio{width:100%;height:44px;border-radius:6px;display:block}
+.podcast-audio::-webkit-media-controls-panel{background:#f0f3ea}
+
+/* Responsive */
+@media(max-width:800px){
+  .info-display{grid-template-columns:1fr}
+  .info-img-wrap{max-height:300px}
+  .info-detail{padding:20px}
+  .media-hero h1{font-size:44px}
+  .deck-frame{aspect-ratio:3/2.5}
+}
+@media(max-width:500px){
+  .info-img-wrap{max-height:220px;padding:12px}
+  .info-detail h3{font-size:20px}
+  .info-detail p{font-size:13px}
+  .deck-controls{gap:8px;padding:10px 12px}
+  .deck-controls .btn{font-size:11px;padding:6px 10px}
+  .podcast-art img{width:48px;height:48px}
+}
