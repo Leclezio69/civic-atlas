@@ -1,0 +1,804 @@
+# Civic Atlas — AI Government & Public Services Series
+
+## Overview
+
+Civic Atlas is a professional learning series on AI in government and public services. It includes ten original playbook volumes, a Northbridge city flood simulator, decision workshops, applied field cases, a portfolio capstone, and an AI agent named Milo. Learners decide which AI projects a fictional city should fund, test them against resident needs, and defend their decisions with evidence.
+
+The series is set in Northbridge, a fictional city and county used as a training district. Each of the ten volumes contains 32 source pages, a briefing, a scored decision workshop, and a searchable sourcebook.
+
+---
+
+## The Ten Playbook Volumes
+
+### Volume 1: The AI Government Strategy Playbook
+
+**Subtitle:** Choose a public problem worth funding.
+
+**Briefing:** You chair Northbridge’s investment panel. Two teams want to reduce the benefits backlog. One would check applications for missing evidence. The other would score claimants’ eligibility. Decide what the city can responsibly pilot and how you would know when to stop.
+
+**Learning outcomes:**
+- Separate preparation work from decisions that affect rights.
+- Set a baseline and a stop condition before funding.
+- Define who can approve, review and pause a pilot.
+
+**Lessons:**
+
+#### Start with the public value test (p. 7)
+
+Write down the current problem, authority to act, groups at risk, route to repair and expected five-year cost. A promising benefit cannot compensate for a missing answer elsewhere in the test.
+
+**Action:** Ask the team to show one measured resident problem and name who would correct a wrong result.
+
+#### Rank the surviving proposals (p. 9)
+
+After excluding prohibited uses, compare candidates on resident pain (25%), volume (15%), evidence readiness (20%), risk and reversibility (20%), equity (10%) and deliverability (10%). Bring frontline staff into scoring and keep dissent with the result.
+
+**Action:** Give a proposal a lower evidence score if nobody can independently check a correct answer.
+
+#### Design a pilot that can fail (p. 24)
+
+Lock the baseline, test period, representative cases and thresholds in advance. Commission an independent evaluation and hear from people who abandoned the journey. Include the cost of staff checking the output.
+
+**Action:** Agree what would trigger a pause, who can call it and which service route residents will use.
+
+**Worked example:** Two proposals at the same gate (p. 7)
+
+In the playbook’s fictional review, intake assistance starts with a 6.1% error rate. Officers keep decision authority and can reverse extraction errors. Automated eligibility scoring fails the authority, fairness and reversibility questions. The panel withdraws it before engaging a supplier.
+
+**Controls to carry forward:**
+- **Watch for a change in purpose** (p. 21): A guidance tool that starts ordering cases changes how people are served. Reassess its risk tier when its behaviour, data or decision role changes.
+- **Reopen the decision at scale** (p. 29): At the scale gate, recheck unit costs and oversight capacity at production volumes. A successful small pilot supplies evidence for that decision.
+
+**Decision exercise:**
+
+*Scenario:* A vendor will bundle automatic eligibility scoring with an intake pilot at no extra charge. The intake use has passed the public value test. No one has established authority or a repair route for scoring.
+
+*Question:* Which proposal should the panel authorise?
+
+- **Option A:** Enable both functions and review a sample weekly.
+  - Feedback: Sampling might reveal errors after they affect residents. It does not establish authority or a route to repair.
+- **Option B:** Limit the pilot to intake and withdraw the scoring proposal. ✓ (Supported)
+  - Feedback: The two uses have different consequences. The approved intake scope supports officers, while the proposed score fails three parts of the test.
+- **Option C:** Obtain a supplier indemnity for errors in the score.
+  - Feedback: An indemnity can allocate financial exposure. Northbridge still owns the decision and its effect on residents.
+
+**Field assignment:** Write the investment decision
+
+1. Select one service problem. Record its baseline, source, measurement date and owner.
+1. State the authority to act, the groups to test and the threshold that pauses the pilot. Describe how staff would find and contact affected residents.
+1. Compare whole-life cost with the measured benefit. Sign a proceed, revise or withdraw decision and identify the accountable officer.
+
+**Deliverable:** A one-page public value test and signed pilot recommendation.
+
+---
+
+### Volume 2: The Citizen Services and Digital Front Doors Playbook
+
+**Subtitle:** Design a front door residents can finish using.
+
+**Briefing:** A resident starts a housing enquiry online, switches to the phone and is asked to explain everything again. Design the transition from published guidance to a staffed service, including the case reference, access needs and promised next contact.
+
+**Learning outcomes:**
+- Define a source-grounded answer and its limits.
+- Specify what follows a resident across channels.
+- Measure a completed journey and the effort it took.
+
+**Lessons:**
+
+#### Give the assistant an approved source (p. 13)
+
+Answer service questions from owned, current guidance. Show the source and disclose AI use at the start. If the guidance is silent, state the gap and offer a human route. The assistant can explain criteria while a case officer determines individual entitlement.
+
+**Action:** Test one common question, one uncited claim and a request for a personal decision.
+
+#### Design the handoff as a service (p. 14)
+
+Record the need, what was tried, documents already on file and access needs. Give the resident a reference, named queue, realistic wait and callback option. A person in distress needs a live transfer to trained staff.
+
+**Action:** Have an adviser take the case using only the handoff summary. Count the facts the resident must repeat.
+
+#### Measure the outcome across channels (p. 24)
+
+Pair digital containment with task completion and effort for the same cohort. Compare repeats after handoff, kept callbacks, and both median and 90th-percentile time to outcome. Break out results by language, disability and channel.
+
+**Action:** Investigate a rising containment figure when task completion is flat or falling.
+
+**Worked example:** What changed at handoff (p. 14)
+
+In Northbridge’s illustrative example, residents repeated an average of 2.7 facts after a transfer before the shared case view. That fell to 0.3 when advisers could see the summary. The measure captures a burden that conversation length alone would miss.
+
+**Controls to carry forward:**
+- **Preserve the original route** (p. 19): Keep paper and phone usable and measure the service offered through them. A resident’s choice of channel should carry through to the next step.
+- **Gate every release** (p. 30): Test citation correctness, refusals, answers in supported languages and attempts to elicit a decision. Give a named owner the rollback trigger.
+
+**Decision exercise:**
+
+*Scenario:* An applicant asks twice whether their circumstances guarantee a housing payment. The published page lists the criteria but does not resolve this case. They ask to speak with a person.
+
+*Question:* What should the assistant do next?
+
+- **Option A:** Offer the best estimate with a confidence percentage.
+  - Feedback: A number would give the appearance of a personal determination. The published source does not establish this resident’s entitlement.
+- **Option B:** Ask the resident to telephone the general number.
+  - Feedback: The phone route exists, but sending them there without context makes them restart.
+- **Option C:** Offer a staffed handoff with the summary, reference and expected wait. ✓ (Supported)
+  - Feedback: The request and two unsuccessful attempts both trigger handoff. The receiving adviser can use the existing evidence and explain the next step.
+
+**Field assignment:** Test one channel transfer
+
+1. Choose a journey and identify the point where published guidance runs out.
+1. Draft the case summary with access needs, evidence already supplied and agreed next step. Write the resident-facing acknowledgement.
+1. Have a colleague act as the receiving adviser. Record repeated facts, missing information and whether the agreed callback was possible.
+
+**Deliverable:** A completed handoff summary, acknowledgement and one tested improvement.
+
+---
+
+### Volume 3: The Benefits, Licensing and Casework Playbook
+
+**Subtitle:** Put the evidence in front of the officer.
+
+**Briefing:** A household submits its income evidence. An extraction tool reads a handwritten amount that conflicts with the case record. Decide how the caseworker should verify the value and deal with any later decisions that relied on it.
+
+**Learning outcomes:**
+- Trace an extracted field to its source.
+- Build a summary an officer can challenge.
+- Turn a successful appeal into a service correction.
+
+**Lessons:**
+
+#### Treat extraction as a working layer (p. 12)
+
+Keep the original, show the image region behind each field and send uncertain items to a human queue. Conflicting dates or amounts become questions for review. Sample document classes separately so a good typed-document score cannot hide poor handwriting recognition.
+
+**Action:** Open the source region for a disputed field and check whether the applicant can correct a mismatch.
+
+#### Make a summary that supports judgement (p. 13)
+
+Separate verified, missing and disputed evidence. Put the timeline, open questions, language needs and relevant flags in view. Link factual statements to the record, timestamp the summary and test for important omissions.
+
+**Action:** Ask a second reviewer to find one inconvenient fact the summary left out.
+
+#### Use appeals to find repeat defects (p. 21)
+
+A fresh officer reviews the original reasons, rule trace, evidence and new facts. Code why decisions change. Repeated findings of missing evidence point to the retrieval or matching process and its owner.
+
+**Action:** Track the cause of an overturn and test whether the same error affected other cases.
+
+**Worked example:** Why appeals were succeeding (p. 21)
+
+In the fictional appeals review, 40% of overturns involved evidence the service already held but failed to see. Correcting evidence matching reduced overturns by a quarter over two quarters. A target to reduce the number of appeals would have hidden the cause.
+
+**Controls to carry forward:**
+- **Keep the decision with the caseworker** (p. 13): A case summary can list rules and open questions. The officer makes the assessment and signs the reasoning.
+- **Correct downstream decisions** (p. 12): When an extraction changes, flag assessments that used the wrong figure and make the correction visible to the applicant.
+
+**Decision exercise:**
+
+*Scenario:* The tool read a weekly amount as a monthly figure. A previous assessment used it and the resident has queried their letter.
+
+*Question:* What is the best first response?
+
+- **Option A:** Verify the source, correct the field and trace affected assessments. ✓ (Supported)
+  - Feedback: The original document is authoritative. The correction must reach every affected assessment, with the resident able to see it.
+- **Option B:** Correct the next letter and leave the case record alone.
+  - Feedback: The incorrect field remains available to influence future summaries and decisions.
+- **Option C:** Request a new copy of all supporting documents.
+  - Feedback: The service already has the original. Check the exact source and request further evidence only if a specific gap remains.
+
+**Field assignment:** Audit a one-page case summary
+
+1. Use a fictional case with a handwritten amount, an amendment and a missing document. Mark the status of each item.
+1. Check the summary against the source, record omissions and misstatements separately, and list the decisions or letters each fault could affect.
+1. Assign a reviewer and correction owner. Draft a plain explanation of the correction and the next step for the resident.
+
+**Deliverable:** An evidence-status summary and a completed quality sample.
+
+---
+
+### Volume 4: The Permitting, Planning and Land Use Playbook
+
+**Subtitle:** Read the proposal in the context of its site.
+
+**Briefing:** A planning panel receives a large file of consultation letters and a parcel map. The letters mention traffic repeatedly. One resident describes an access route at risk of flooding. Decide which facts and objections must reach the planner.
+
+**Learning outcomes:**
+- Validate an application against a published list.
+- Check drawing and map evidence against versions and dates.
+- Represent a material minority objection in the officer report.
+
+**Lessons:**
+
+#### Give the applicant one complete list (p. 11)
+
+Map each application type to a published validation list. Check the file format, scale, site boundary and fees together, then get a person to confirm gaps before a notice goes out. Give the applicant a contact and a realistic cure date.
+
+**Action:** Record a second request for something visible at first review as a defect.
+
+#### Assemble a dated parcel record (p. 13)
+
+Bring together the parcel boundary, planning history, adopted policy, statutory designations and physical constraints. Label modelled layers and record their date and coverage. A blank flood layer may reflect absent or stale data.
+
+**Action:** Refresh neighbouring applications and cumulative context at the decision date.
+
+#### Read consultation by issue (p. 14)
+
+Cluster letters by the material issues they raise. Link the cluster to original representations, show duplicate campaigns and retain any relevant single objection. The case officer records the weight and reasons.
+
+**Action:** Trace an isolated drainage concern to its original letter and give it a place in the officer’s review.
+
+**Worked example:** A faster start to review (p. 11)
+
+In the fictional Northbridge example, one complete validation check brought median time-to-valid from 19 days to four. Second gap notices fell by four-fifths. This measures application intake, a different interval from the time to reach a planning decision.
+
+**Controls to carry forward:**
+- **Verify a dimension in the drawing** (p. 12): Show the source region beside every extraction and distinguish superseded drawings. An unverified dimension stays marked as draft.
+- **Route borderline checks to the planner** (p. 10): Use versioned code for measurable standards and record the tolerance. A near-boundary result needs the underlying measurement and human review.
+
+**Decision exercise:**
+
+*Scenario:* One of 200 consultation letters identifies a potentially material drainage problem. A summariser groups it under miscellaneous comments.
+
+*Question:* How should the case officer handle it?
+
+- **Option A:** Keep only issues raised by several residents.
+  - Feedback: The number of submissions cannot establish the significance of the underlying evidence.
+- **Option B:** Surface the issue with its source letter and record the planner’s judgement. ✓ (Supported)
+  - Feedback: The lone representation may be material. Preserving its source lets the planner assess the concern and explain its weight.
+- **Option C:** Treat the objection as a binding reason to refuse.
+  - Feedback: Surfacing an objection makes it available for assessment. Its planning weight still requires a reasoned judgement.
+
+**Field assignment:** Assemble a dated parcel pack
+
+1. List the boundary, site history and relevant designations. Identify the source, date and owner for each layer.
+1. Add physical constraints, current policy and neighbouring schemes. State known coverage gaps and distinguish modelled surfaces from confirmed records.
+1. Name the planner who will resolve a conflicting layer and explain what evidence an applicant or objector can inspect.
+
+**Deliverable:** A parcel checklist with explicit gaps and a named decision owner.
+
+---
+
+### Volume 5: The Tax, Revenue and Compliance Playbook
+
+**Subtitle:** Make a public bill reproducible.
+
+**Briefing:** A resident’s bill has changed since last year. A draft explanation attributes the increase to a rate change, while the calculation record shows a relief expired. Reconstruct the bill and decide what the service must establish before sending it.
+
+**Learning outcomes:**
+- Distinguish a statutory calculation from its explanation.
+- Connect each adjustment to a source and version.
+- Review who is selected for checks and why.
+
+**Lessons:**
+
+#### Run the correct version of the rules (p. 10)
+
+Use the rules engine for rates, bands, reliefs and deadlines. Maintain versions by tax year. Staff reconcile the engine with the governing source and test it against worked cases. The language model can explain the recorded result.
+
+**Action:** For one relief, locate its effective date, approval record and test case.
+
+#### Make each figure explainable (p. 12)
+
+For each material figure, identify the facts used and label their origin. Show how the rate, relief or officer adjustment changes the total. Spell out what changed since the last bill, and give dated options for queries, corrections and objections.
+
+**Action:** Ask a colleague to reproduce the bill using only the trace and the sources it names.
+
+#### Audit how accounts are selected (p. 15)
+
+A risk signal should lead to underlying evidence. An officer selects a case and records why. Use random checks alongside risk-based selection to test what the model misses, and compare both selection and findings by sector, size, channel and group.
+
+**Action:** Review who bore the cost of unproductive checks alongside what checks found.
+
+**Worked example:** Explaining an expired relief (p. 12)
+
+In this practice case, a relief applied last year and expired this year. The calculation trace shows the dates and both relief amounts. The officer verifies the account facts and rule version. The new explanation identifies the change, its impact and how to dispute the underlying fact.
+
+**Controls to carry forward:**
+- **Stop the escalation sequence for hardship** (p. 17): Send hardship signals to a trained officer. Review affordability and circumstances before a further enforcement step.
+- **Reconcile the benefits claim** (p. 25): Deduct reversed assessments and their handling costs from claimed yield. Include costs incurred by residents and advisers when evaluating the change.
+
+**Decision exercise:**
+
+*Scenario:* The draft letter and calculation trace disagree about the reason for an increased charge. The batch is ready for issue.
+
+*Question:* Which action makes the notice defensible?
+
+- **Option A:** Send the trace as an attachment to the existing letter.
+  - Feedback: The resident would receive two incompatible explanations and could act on the wrong one.
+- **Option B:** Ask the model for a more confident description of the rate change.
+  - Feedback: Fluency does not resolve whether the account, legal rule or explanation is wrong.
+- **Option C:** Hold the affected notice, verify the trace and correct the explanation. ✓ (Supported)
+  - Feedback: The officer checks facts and the applicable rule, resolves the disagreement and gives a transparent correction or objection route.
+
+**Field assignment:** Prepare a calculation trace
+
+1. Use a hypothetical bill with a rate, a relief and an adjustment. Label the source and date of each account fact.
+1. Record the rule source, effective version, relief applied and person checking the result.
+1. Write a short notice that explains the change line by line and includes a query route and a dated response deadline.
+
+**Deliverable:** A calculation trace and a matching resident-facing explanation.
+
+---
+
+### Volume 6: The Procurement and Supplier AI Playbook
+
+**Subtitle:** Buy an AI service the authority can test and exit.
+
+**Briefing:** Northbridge is procuring a document-reading service. Three suppliers submit strong bids and the evaluation panel is under time pressure. Design how AI can help the panel examine evidence while retaining fair evaluation and a credible exit route.
+
+**Learning outcomes:**
+- Sequence bid evaluation to avoid anchoring reviewers.
+- Check a supplier against the authority’s own cases.
+- Demonstrate that a service can continue through supplier exit.
+
+**Lessons:**
+
+#### Score the bid before seeing the summary (p. 14)
+
+Each evaluator reads the original bid and independently records scores against the published criteria. AI then works as a second reader to locate evidence, inconsistent claims and commitments the panel may have missed. Record the reason for each moderation change.
+
+**Action:** Collect the independent scoring records before distributing an AI comparison.
+
+#### Test what will actually be deployed (p. 15)
+
+Evaluate a candidate model on representative local cases and segment by language, place and case type. Check supplier capacity, sub-processors, data rights, security evidence and references. Apply the due diligence checks announced in the tender.
+
+**Action:** Ask a reference site whether it operates the same version and service described in the bid.
+
+#### Test exit during the contract (p. 23)
+
+Maintain the configuration, prompts, evaluation set, dependencies, data formats and transfer runbook. Load a sample export in the receiving environment and price transition support and parallel operation. Identify cases in flight that need uninterrupted service.
+
+**Action:** Ask someone unfamiliar with the supplier to run the transfer procedure.
+
+**Worked example:** A model change disguised as an upgrade (p. 22)
+
+In this practice case, a supplier proposes a version update with better benchmark scores. Run the held local evaluation set, assess changes in performance by cohort and record which version served which dates. The contract’s rollback terms become operational if the local test regresses.
+
+**Controls to carry forward:**
+- **Protect evaluator independence** (p. 14): Treat AI flags as questions for evidence review. The moderation record identifies the human reason for any change in score.
+- **Verify portability** (p. 23): A delivered export needs a successful loading test. File the return sample and agreement on deletion, and identify who keeps the service running during transfer.
+
+**Decision exercise:**
+
+*Scenario:* A panel chair proposes sending AI-generated provisional scores before evaluators start. The chair believes it will make moderation quicker.
+
+*Question:* How should the procurement lead respond?
+
+- **Option A:** Collect independent bid scores first, then issue evidence-linked findings. ✓ (Supported)
+  - Feedback: Independent judgements give moderation a defensible starting point. AI can identify evidence to revisit without assigning the award.
+- **Option B:** Send provisional scores anonymously to reduce social pressure.
+  - Feedback: Removing the author still leaves an anchor before anyone has assessed the original evidence.
+- **Option C:** Use the generated scores only when evaluators disagree.
+  - Feedback: A tied or disputed award needs the published criteria and documented human reasons. An AI score supplies neither.
+
+**Field assignment:** Rehearse the exit
+
+1. List data, configuration, evaluation material, sub-processors and access the receiving team needs.
+1. Define an export format, real loading test, deletion evidence and named owners. Include a parallel-run period.
+1. Record what could interrupt an appointment, payment or open case, how continuity will be demonstrated and who signs the rehearsal.
+
+**Deliverable:** An exit pack and continuity checklist with a testable acceptance criterion.
+
+---
+
+### Volume 7: The Emergency Services and Public Safety Playbook
+
+**Subtitle:** Preserve human command when seconds count.
+
+**Briefing:** Two location sources place an incident at opposite entrances to a housing complex. A dispatcher needs the incident record, uncertainty and available corroboration. Examine how an AI-assisted desk prepares that evidence and what happens if the system goes offline.
+
+**Learning outcomes:**
+- Show uncertainty in an incident location.
+- Locate the human decision in the dispatch chain.
+- Reconcile records after a fallback drill.
+
+**Lessons:**
+
+#### Keep conflicting location claims visible (p. 11)
+
+Show device accuracy, the address on file and caller-described landmarks as distinct claims. For a large building, an entrance or stairwell can matter more than a street address. Record which claim staff confirmed and how.
+
+**Action:** Inspect whether the map shows the radius, source and time of the pin.
+
+#### Support the call-taker’s judgement (p. 9)
+
+Transcription and prompts help staff listen and capture evidence. Staff can override the protocol sequence and determine the grade. Review samples should pay particular attention to under-triage and whether prompts or transcription contributed.
+
+**Action:** Trace a grade back to recorded answers and the person who made the judgement.
+
+#### Rehearse losing the technology (p. 25)
+
+In the playbook’s control room, the shift commander declares fallback and staff use manual logs and protocol cards. Monthly drills keep those skills current. Recovery reconciles the authoritative record of calls handled during the outage.
+
+**Action:** Name who declares fallback and who verifies that every manually logged incident is represented on recovery.
+
+**Worked example:** Returning attention to the call (p. 8)
+
+In the fictional pilot, transcription and a bundle of location claims reduced average time to dispatch-ready from 94 to 61 seconds on the queues tested. That is a preparation measure. The dispatcher still decides whether and what to commit.
+
+**Controls to carry forward:**
+- **Reserve dispatch and public warnings for named staff** (p. 6): The playbook reserves dispatch, downgrade and closure decisions for authorised humans. Public warnings also require a named releasing officer.
+- **Test access and speech differences** (p. 10): Preserve the original alongside translation and flag uncertain words. Review transcription separately for different speech and language groups.
+
+**Decision exercise:**
+
+*Scenario:* A device pin and a caller-described entrance differ. The device has a wide accuracy radius. A proposed display hides the radius to reduce visual clutter.
+
+*Question:* What evidence should the desk retain and show?
+
+- **Option A:** Display the central point alone until a unit arrives.
+  - Feedback: The centre of a wide radius is still an uncertain claim. Staff would lose information relevant to assessing the mismatch.
+- **Option B:** Show the conflicting claims, their uncertainty and the staff confirmation. ✓ (Supported)
+  - Feedback: The bundle lets staff reconcile the location and record the basis for the decision. The dispatcher retains authority.
+- **Option C:** Always prefer the address on the account.
+  - Feedback: A registered address may describe the caller’s home rather than the incident site.
+
+**Field assignment:** Conduct a tabletop location review
+
+1. Create a fictional incident with a device radius, a registered address and a caller-described landmark.
+1. Record which claim a trained participant would verify, who records confirmation and what information the dispatcher sees.
+1. Simulate system loss in the exercise. Record the manual reference, recovery check and any location-data correction.
+
+**Deliverable:** A location-claim record and an outage-reconciliation action for the exercise.
+
+---
+
+### Volume 8: The Data, Records and Interoperability Playbook
+
+**Subtitle:** Connect records without losing the person behind them.
+
+**Briefing:** Two people with similar names and a shared address appear as a likely match. One service has already reused a fact from another. Work through how Northbridge verifies the proposed link, limits access and repairs a mistake across receiving systems.
+
+**Learning outcomes:**
+- Identify the purpose, provenance and freshness of reused data.
+- Distinguish a proposed link from an authorised match.
+- Design a correction that reaches downstream records.
+
+**Lessons:**
+
+#### Show why a fact is being reused (p. 12)
+
+Check that reuse serves an authorised purpose. Show where the fact came from and when it was recorded. Give the resident a way to review and correct it at source, especially when pre-filling a form.
+
+**Action:** Ask whether an officer could explain the authority for this specific reuse.
+
+#### Treat identity linkage as a decision (p. 10)
+
+A probabilistic match is a candidate for review. Keep person, property and case references distinct: people may share an address without sharing identity or ownership. Record how to reverse the link and how receiving systems are notified.
+
+**Action:** Test a pair of similar names at one address and document what evidence would distinguish them.
+
+#### Govern each exchange (p. 15)
+
+Record the data, purpose, basis and human approver. Limit the fields to what the receiver needs, define retention and onward-sharing rules and set an expiry. A technically successful API call proves only that a transfer occurred.
+
+**Action:** Sample a completed exchange and trace its data fields to the sharing record.
+
+**Worked example:** A correction that travels (p. 21)
+
+In this practice case, a resident finds another household’s address on a pre-filled form. The steward checks the source, unwinds the wrong link and sends the correction to each service that received it. The resident gets confirmation identifying where the change went.
+
+**Controls to carry forward:**
+- **Protect access at retrieval** (p. 19): Search must respect the user’s role and the source permissions. A convenient result page must not expose records its reader cannot open.
+- **Keep an audit trail for corrections** (p. 21): Make a correction at the source and propagate it with confirmation. Access and changes need attributable, reviewable records.
+
+**Decision exercise:**
+
+*Scenario:* A matching system reports 99% confidence that two names at the same address belong to one person. A merged record would pre-fill benefits and tax forms.
+
+*Question:* What should the data steward do?
+
+- **Option A:** Merge the records and correct them if someone complains.
+  - Feedback: A wrong merge would spread before either resident had a chance to correct it.
+- **Option B:** Use the shared address as proof of identity.
+  - Feedback: The property reference identifies a place. Several people can legitimately share it.
+- **Option C:** Queue the proposed link for review and preserve a reversible history. ✓ (Supported)
+  - Feedback: Probability can identify cases for investigation. A human confirms the link, and the record needs a way to undo it across recipients.
+
+**Field assignment:** Draft the exchange record
+
+1. Name the dataset, proposed receiving service and purpose. Identify the responsible owner and authority to share.
+1. Limit the fields, state freshness and access rules, specify expiry and define what the receiver does after a correction.
+1. Run the similar-name example through the proposed process and identify the approval and correction evidence you would retain.
+
+**Deliverable:** A signed sharing-record draft and an end-to-end correction test.
+
+---
+
+### Volume 9: The Workforce, Ethics and Public Trust Playbook
+
+**Subtitle:** Give public servants the time and authority to challenge.
+
+**Briefing:** After training, one team overrides more AI outputs than its peers. Managers want to use the override rate as a performance target. Assess what the rise actually reveals and what evidence would help residents and staff trust the response.
+
+**Learning outcomes:**
+- Match assessment and sign-off rights to the role.
+- Distinguish healthy challenge from a service defect.
+- Give residents and staff a documented role in review.
+
+**Lessons:**
+
+#### Assess the work people will actually do (p. 10)
+
+Use realistic cases with plausible errors, omissions and stale data. Staff who sign need to show they can check evidence and explain their decision. Build training and coaching time into the working week.
+
+**Action:** Give a reviewer a convincing but incorrect output and observe how they trace it.
+
+#### Protect the override (p. 11)
+
+An officer can set aside an AI output at the desk. Capture the reason in their own words and review patterns for tool, data and training defects. Sample apparent agreements too: near-universal agreement can signal rubber stamping.
+
+**Action:** Review a sample of accepted outputs alongside the overrides before judging team performance.
+
+#### Give public review authority (p. 12)
+
+An ethics board needs independent and resident members, evidence by group, declared conflicts and explicit power to approve, impose conditions, pause or refuse a use. Record dissent and name the owner and due date for each condition.
+
+**Action:** Publish the decision and show how engagement changed the service or why a proposal was declined.
+
+**Worked example:** Why the override rate went up (p. 11)
+
+In the fictional benefits team, overrides rose after staff training. Their comments exposed two extraction defects. The rate then fell after the defects were fixed. Looking only at the initial increase would have penalised the behaviour that found the problem.
+
+**Controls to carry forward:**
+- **Check whose voice was heard** (p. 15): Engage digitally excluded residents, language minorities and disability groups. Support participation and publish the response where the service disagrees with its panel.
+- **Keep staff challenge practical** (p. 11): Allow a one-action override and provide time to read and check. Review patterns as evidence about the service rather than ranking individual officers.
+
+**Decision exercise:**
+
+*Scenario:* A team’s override rate doubles immediately after training. Its managers are about to add a low-override target to individual reviews.
+
+*Question:* What should the service owner do?
+
+- **Option A:** Review override reasons and sample accepted cases before diagnosing the change. ✓ (Supported)
+  - Feedback: The rise could reflect improved checking or a new defect. Reviewing both types of case helps distinguish the explanations and protects justified challenge.
+- **Option B:** Require supervisor approval for each override.
+  - Feedback: This adds friction precisely where people need to challenge an output and could hide defects.
+- **Option C:** Rank teams by agreement until training beds in.
+  - Feedback: Agreement says little about whether the shared judgement was correct. A ranking can reward uncritical acceptance.
+
+**Field assignment:** Prepare the monthly judgement review
+
+1. Describe an illustrative batch of decisions, including accepted outputs and overrides. Sample from both.
+1. Group override reasons, identify a possible tool or data defect, and name the person who will investigate it.
+1. Specify how the team will verify the fix, report any cohort pattern and share the learning without penalising individual staff.
+
+**Deliverable:** A completed override review with a testable action and due date.
+
+---
+
+### Volume 10: The Government Capstone and Assurance Playbook
+
+**Subtitle:** Defend the portfolio through one household’s experience.
+
+**Briefing:** A household moves to Northbridge and uses benefits, licensing, permitting and tax services. Each service passes its own quality checks, yet two letters to the family disagree. Chair a portfolio review that can reconstruct the problem, repair it and give a truthful account to the public.
+
+**Learning outcomes:**
+- Trace a decision across departments and versions.
+- Run portfolio-level assurance and a pause drill.
+- Draft a signed statement with residual findings and dates.
+
+**Lessons:**
+
+#### Build an assurance file someone else can replay (p. 9)
+
+For each material use, assemble purpose, authority, data lineage, applicable rules, evaluation, fairness, staff competence, incidents, supplier changes and retirement plans. Attribute and date entries as events happen. Retain versions so a reviewer can reconstruct the decision as the resident experienced it.
+
+**Action:** Select a single decision and reproduce its inputs, policy version and human sign-off from the file.
+
+#### Test the resident’s whole journey (p. 16)
+
+A household may see several services in one month. Compare their answers to the same underlying facts. Use agreed records and consent where appropriate, trace calculations and give the person one route for a complaint across the journey.
+
+**Action:** Look for contradictions between two individually plausible outputs and trace them to their sources.
+
+#### Move from findings to sign-off (p. 22)
+
+The capstone starts by counting and classifying uses, then assembling evidence and testing the portfolio. At CP4, fix, pause or retire, retest, and give remaining findings owners and dates. At CP5, publish the signed account, register, scorecard and failures log.
+
+**Action:** State explicitly what evidence allows the use to continue and what event would require a pause.
+
+**Worked example:** What the first annual review found (p. 28)
+
+In the playbook’s illustrative portfolio of 23 uses, three Tier 2 files lacked fairness results, a Tier 3 service lacked a rehearsed exit, and two services gave different housing answers. A bundled tool was paused, two low-value uses retired, and the signed statement listed five open findings.
+
+**Controls to carry forward:**
+- **Test pause authority outside office hours** (p. 7): Name the service owner, accountable officer and independent assurance lead for material uses. Run the drill with a real person who can act and a staffed alternative that can take over.
+- **Disclose outstanding findings** (p. 22): At sign-off, a material open finding requires a description of risk, a named owner and a closure date. File the evidence behind the statement.
+
+**Decision exercise:**
+
+*Scenario:* The annual review finds that two services issued conflicting housing guidance. Several residents acted on the older answer. The publication date is approaching.
+
+*Question:* What action should the review board record?
+
+- **Option A:** Publish a clean statement because both services met their local accuracy targets.
+  - Feedback: The local metrics missed a contradiction that affected residents. A clean statement would conceal a material portfolio finding.
+- **Option B:** Correct the sources, identify and contact affected residents, retest and disclose outstanding findings. ✓ (Supported)
+  - Feedback: The response repairs individual harm and adds a cross-service consistency check. Any remaining material issue needs a named owner, risk and date.
+- **Option C:** Amend the housing webpage and leave historical letters unchanged.
+  - Feedback: A web update does not find or notify people who relied on the conflicting letters. The file needs a record of correction and contact.
+
+**Field assignment:** Prepare the annual assurance statement
+
+1. Identify a household journey and list the uses that touched it. Attach evidence from strategy, front door, casework, planning, revenue, procurement, emergency continuity, records and workforce where relevant.
+1. Reconstruct a material decision. Test one cross-service contradiction and a safe fallback. Record corrections, residents affected, owners and independent retest results.
+1. Record the decision for each affected use: continue, restrict, pause or retire. Draft the portfolio statement with the evidence index, open risks, named owners, due dates and next review.
+
+**Deliverable:** An assurance decision pack and a draft statement the chief executive and accountable officers could sign.
+
+---
+
+## Northbridge Flood Simulator
+
+The city simulator is a tabletop exercise where learners manage six reporting teams across three district desks during a one-hour flood event (08:00–09:00). The exercise uses deterministic demand models and real NYC 311 flood data.
+
+### District Desks
+
+**Riverside** (West Bridge desk): Low-lying approaches generate the earliest surge. This desk loses its mapping feed during the exercise.
+
+**Market Ward** (Municipal service centre): The service centre handles the largest share of assisted-contact reports. Demand peaks during the middle of the hour.
+
+**Civic Quarter** (City Hall public desk): Council enquiries and calls about public updates increase late in the exercise. This desk prepares the signed public message.
+
+### Weather Profiles
+
+- **Steady rain:** Lower intensity, gradual flood rise
+- **Cloudburst:** Higher intensity, faster and deeper flooding
+
+### Officer Decision Gates
+
+#### Language and intake capacity (08:12)
+
+*Source:* Contact-centre duty supervisor (Emergency Services playbook, p. 10)
+
+*Evidence:* The contact centre confirms rising demand for assisted contact. The opening weather bulletin offers no evidence about who can use the standard queue.
+
+**Options:**
+- **Open a shared interpreter desk:** A staffed Market desk spends one work unit per minute on coordination. While staffed, assisted reports cost three units citywide.
+- **Prioritise local callbacks:** Keep all units at their desks. Each district serves assisted reports waiting six minutes first. Their handling cost stays at five units.
+
+#### The Riverside map feed is stale (08:28)
+
+*Source:* Mapping desk and field liaison (Emergency Services playbook, p. 25)
+
+*Evidence:* A heartbeat still appears on the dashboard. The field liaison confirms that no new Riverside positions arrived after 08:28. Market and Civic feeds are current.
+
+**Options:**
+- **Cross-check before filing:** Add two work units to each location-sensitive Riverside report during the outage. The file includes its verification at handoff.
+- **File provisional locations:** Keep the normal handling cost and flag each affected record for a later check. After restoration, reconciliation consumes staff capacity.
+
+#### Approve the public update (08:44)
+
+*Source:* Public information duty officer (Emergency Services playbook, p. 18)
+
+*Evidence:* Reports still arrive about access and closures. The duty officer can authorise one message package and must retain the approval record.
+
+**Options:**
+- **Issue a localised accessible briefing:** Commit four Civic work units, up to two per minute. After preparation, each assisted report takes one fewer unit.
+- **Issue a verified holding bulletin:** Commit one Civic work unit. After preparation, routine information enquiries take one fewer unit. Assisted reports still need individual support.
+
+### Simulation Mechanics
+
+- Each active team supplies two work units per minute
+- A standard report costs three work units; an assisted report costs five
+- Teams can be transferred between desks with travel times of 3–7 minutes depending on distance and flood level
+- At 08:28 the Riverside map feed drops out; at 08:41 it returns
+- The after-action review replays one alternative decision against identical demand to show the counterfactual
+
+---
+
+## Portfolio Capstone
+
+The capstone traces a single household across every department in Northbridge. Learners build an assurance file through six gates.
+
+### The Six Assurance Gates
+
+**CP0 — Count** (Capstone playbook, p. 21)
+
+*Task:* Reconcile the register with procurement spend, embedded supplier tools and actual staff use.
+
+*Prompt:* Name the service, its owner, its model or supplier, and the source used to verify the inventory.
+
+**CP1 — Classify** (Capstone playbook, p. 21)
+
+*Task:* Assign the portfolio assurance tier, check the stop list and name an accountable officer.
+
+*Prompt:* Identify the decision boundary, tier, officer and stop condition.
+
+**CP2 — Evidence** (Capstone playbook, p. 21)
+
+*Task:* Assemble the assurance file for each Tier 2 and Tier 3 use. Trace each claim to a dated record.
+
+*Prompt:* Give an evidence reference, what it proves, its owner and the date it was reviewed.
+
+**CP3 — Test** (Capstone playbook, p. 21)
+
+*Task:* Walk a resident journey and test distribution, drift, consistency, security and outage handling.
+
+*Prompt:* Describe a test, the expected result, what happened and the remaining gap.
+
+**CP4 — Remediate** (Capstone playbook, p. 22)
+
+*Task:* Fix, pause or retire weak uses. Record each open finding, its owner and deadline, then retest.
+
+*Prompt:* Record a finding, the response, a retest result and the accountable owner.
+
+**CP5 — Sign and publish** (Capstone playbook, p. 22)
+
+*Task:* Document the officers’ decisions and material open findings for the portfolio assurance statement.
+
+*Prompt:* Set out what can be signed, which risks remain open, and what will be published.
+
+---
+
+## Applied Field Cases
+
+### The model behind the signature
+
+**Volume:** procurement-supplier
+
+**Brief:** Northbridge has accepted a supplier’s assistant for drafting housing repair callbacks. The supplier is about to switch the model behind the service endpoint, hours before the first live shift.
+
+**Scenario:** undefined
+
+**Actions available:**
+- **undefined:** The failed floor activates the change hold. The staffed manual shift keeps the service running while the supplier cures the defect.
+- **undefined:** The bounded release matches the accepted version, witnessed replay and tested stop control. The time limit is enforceable.
+- **undefined:** Schedule 4 permits the transition. The witnessed import and named roster support cutover with a final reconciliation.
+- **undefined:** Three lost interpreter arrangements breach the agreed floor. Reviewing exceptions after release relies on a format checker that passed all three failures.
+
+### The Mill Lane boundary
+
+**Volume:** permitting-planning
+
+**Brief:** Mill Lane Cycling Club has booked a crew to install a covered cycle rack, and its application appears to clear the service corridor by 18 centimetres. Decide what the planning officer can put in the afternoon decision pack when the underlying map changes.
+
+**Scenario:** undefined
+
+**Actions available:**
+- **undefined:** The signed overlay resolves MC-4 within the stated tolerance. The instruction gives Leena a verified input and preserves her discretion over the permit.
+- **undefined:** The dispatch trace supports the six-file scope. P-218 remains open for a measured assessment on Monday.
+- **undefined:** The stale map is established on both routes. A bounded manual review protects the file while the officer checks the available evidence and the steward establishes the wider impact.
+- **undefined:** The stated uncertainty spans both sides of the threshold. The measurement cannot support a refusal, and the duty manager cannot issue Leena’s decision.
+
+### Two payslips, one pay packet
+
+**Volume:** benefits-casework
+
+**Brief:** An income check has doubled Dani Reed’s weekly wages and drafted a $92 recovery from her next housing-support payment. Decide what can go into the payment file and what the service still needs to prove.
+
+**Scenario:** undefined
+
+**Actions available:**
+- **undefined:** The signed register ties the two events to one $410 wage. The original assessment used that amount, so Helena can sign a case-specific correction.
+- **undefined:** The controlled replay supports a targeted pause on build 2.6. The individual case stays open until an officer verifies the employer’s original records.
+- **undefined:** The hold protects the payment. Use the signed return to resolve the individual case or contain the reproduced defect, whichever the investigation supports.
+- **undefined:** The matching tool counted events. Recovery requires a verified assessment and an officer’s signed decision under the exercise rules.
+
+---
+
+## Milo — AI Agent
+
+Milo is the built-in AI assistant that answers questions about the ten playbooks and the broader series. It uses retrieval-augmented generation to find relevant passages from the playbook index and can operate via Claude Sonnet (Anthropic API) or a local Qwen 0.5B model running in the browser via WebAssembly.
+
+Milo supports three answer scopes:
+- **Automatic** — detects whether the question relates to playbook content
+- **Playbooks** — grounds answers exclusively in playbook evidence
+- **General knowledge** — answers from the model's training data
+
+---
+
+## Key Themes Across the Series
+
+1. **Separate preparation from decision** — AI can assist with evidence gathering, but decisions that affect rights require human authority and accountability.
+2. **Design for failure** — Every pilot needs a baseline, a stop condition, and a repair route before it begins.
+3. **Trace every claim to evidence** — Each assertion in an assurance file must link to a dated record, an owner, and a review.
+4. **Test the resident journey end to end** — Individual service reviews can pass while the cross-department experience fails.
+5. **Preserve human command** — In time-critical operations, AI outputs must show uncertainty and keep the human decision-maker in the loop.
+6. **Buy what you can test and exit** — Procurement must ensure the authority can independently verify outputs and continue service through supplier exit.
+7. **Connect records without losing the person** — Data sharing must respect purpose, provenance, and the right to correction.
+8. **Give staff the authority to challenge** — Override rates measure healthy governance, not defiance.
+9. **Publish the residual risk** — The assurance statement must name what remains open, who owns it, and when it will close.
+10. **Measure completed journeys, not transactions** — Success is measured by whether the resident finished what they came to do.
