@@ -31,124 +31,21 @@ const podcastSrc='assets/Does_AI_Curation_Dictate_Government_Decisions.m4a';
 const podcastTitle='Does AI Curation Dictate Government Decisions?';
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ── Scroll reveal observer ──
 function observeSections(root){
   if(typeof IntersectionObserver==='undefined')return;
-  const entries=root.querySelectorAll('.media-section, .media-hero-inner');
   const obs=new IntersectionObserver(list=>{
     for(const e of list)if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target)}
   },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
-  entries.forEach(el=>obs.observe(el));
+  root.querySelectorAll('.media-section, .media-hero-inner').forEach(el=>obs.observe(el));
 }
 
-// ── Infographic carousel with transitions & swipe ──
-function mountInfoCarousel(container){
-  let idx=0,startX=0,dragging=false,first=true;
-  function render(dir){
-    const info=infographics[idx];
-    // Always call build directly — no animation gating
-    build();
-    function build(){
-      const animate=!first&&!reduced()&&dir!==0;
-      first=false;
-      container.innerHTML=
-        '<div class="info-slide '+(animate?'slide-in-'+(dir>0?'right':'left'):'')+'">'+
-        '<div class="info-display"><div class="info-img-wrap"><img src="assets/'+esc(info.file)+'" alt="'+esc(info.title)+'" draggable="false"></div>'+
-        '<div class="info-detail"><span class="minor-label">INFOGRAPHIC '+(idx+1)+' OF '+infographics.length+'</span>'+
-        '<h3>'+esc(info.title)+'</h3><p>'+esc(info.body)+'</p>'+
-        '<div class="info-nav"><button class="iconbtn info-prev" aria-label="Previous" '+(idx===0?'disabled':'')+'>'+icon('left',18)+'</button>'+
-        '<span class="info-counter">'+(idx+1)+' / '+infographics.length+'</span>'+
-        '<button class="iconbtn info-next" aria-label="Next" '+(idx===infographics.length-1?'disabled':'')+'>'+icon('chevron',18)+'</button></div>'+
-        '<div class="info-dots">'+infographics.map((_,i)=>'<button class="info-dot'+(i===idx?' active':'')+'" data-dot="'+i+'" aria-label="Infographic '+(i+1)+'"></button>').join('')+'</div>'+
-        '</div></div></div>';
-      wire();
-    }
-  }
-  function go(i,dir){if(i<0||i>=infographics.length||i===idx)return;const d=dir||(i>idx?1:-1);idx=i;render(d)}
-  function wire(){
-    container.querySelector('.info-prev')?.addEventListener('click',()=>go(idx-1,-1));
-    container.querySelector('.info-next')?.addEventListener('click',()=>go(idx+1,1));
-    container.querySelectorAll('.info-dot').forEach(b=>b.addEventListener('click',()=>go(Number(b.dataset.dot))));
-    const track=container.querySelector('.info-display');
-    if(!track)return;
-    track.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;startX=e.clientX;dragging=true;track.setPointerCapture(e.pointerId)});
-    track.addEventListener('pointerup',e=>{if(!dragging)return;dragging=false;const dx=e.clientX-startX;if(Math.abs(dx)>40){dx<0?go(idx+1,1):go(idx-1,-1)}});
-    track.addEventListener('pointercancel',()=>{dragging=false});
-  }
-  container.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')go(idx-1,-1);else if(e.key==='ArrowRight')go(idx+1,1)});
-  container.setAttribute('tabindex','0');
-  render(0);
-}
-
-// ── PDF deck via pdf.js canvas renderer ──
-async function mountDeck(container){
-  let page=1,pdfDoc=null,rendering=false,canvas=null,ctx=null;
-  container.innerHTML=
-    '<div class="deck-canvas-wrap"><canvas class="deck-canvas"></canvas><div class="deck-loading">Loading slide deck…</div></div>'+
-    '<div class="deck-controls"><button class="btn outline deck-prev">'+icon('left',15)+' Previous</button>'+
-    '<span class="deck-counter"></span>'+
-    '<button class="btn outline deck-next">Next '+icon('chevron',15)+'</button></div>'+
-    '<a class="text-link deck-download" href="'+deckPdf+'" target="_blank" rel="noopener">'+icon('download',15)+' Open full PDF '+icon('upRight',13)+'</a>';
-  canvas=container.querySelector('.deck-canvas');
-  ctx=canvas.getContext('2d');
-  const prev=container.querySelector('.deck-prev');
-  const next=container.querySelector('.deck-next');
-  const counter=container.querySelector('.deck-counter');
-  const loading=container.querySelector('.deck-loading');
-  function updateControls(){
-    prev.disabled=page<=1;next.disabled=page>=deckPages;
-    counter.textContent='Slide '+page+' of '+deckPages;
-  }
-  async function renderPage(){
-    if(!pdfDoc||rendering)return;
-    rendering=true;
-    canvas.classList.add('deck-fade');
-    try{
-      const pg=await pdfDoc.getPage(page);
-      const dpr=Math.min(window.devicePixelRatio||1,2);
-      const wrapW=container.querySelector('.deck-canvas-wrap').clientWidth-2;
-      const vp=pg.getViewport({scale:1});
-      const scale=(wrapW/vp.width)*dpr;
-      const sv=pg.getViewport({scale});
-      canvas.width=sv.width;canvas.height=sv.height;
-      canvas.style.width=Math.round(sv.width/dpr)+'px';
-      canvas.style.height=Math.round(sv.height/dpr)+'px';
-      await pg.render({canvasContext:ctx,viewport:sv}).promise;
-      canvas.classList.remove('deck-fade');
-    }catch{}
-    rendering=false;
-    updateControls();
-  }
-  prev.onclick=()=>{if(page>1){page--;renderPage()}};
-  next.onclick=()=>{if(page<deckPages){page++;renderPage()}};
-  container.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'&&page>1){page--;renderPage()}else if(e.key==='ArrowRight'&&page<deckPages){page++;renderPage()}});
-  container.setAttribute('tabindex','0');
-  updateControls();
-  try{
-    await import('./vendor/pdfjs/pdf.min.mjs');
-    const pdfjsLib=globalThis.pdfjsLib;
-    if(!pdfjsLib?.getDocument)throw new Error('pdf.js not available');
-    pdfjsLib.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdfjs/pdf.worker.min.mjs',import.meta.url).href;
-    pdfDoc=await pdfjsLib.getDocument(deckPdf).promise;
-    loading.hidden=true;
-    renderPage();
-  }catch(e){
-    console.warn('pdf.js failed, using iframe fallback:',e?.message);
-    loading.hidden=true;
-    const wrap=container.querySelector('.deck-canvas-wrap');
-    wrap.innerHTML='<iframe src="'+deckPdf+'#page=1&view=FitH&toolbar=0" class="deck-iframe" title="'+esc(deckTitle)+'"></iframe>';
-    prev.onclick=()=>{if(page>1){page--;wrap.querySelector('iframe').src=deckPdf+'#page='+page+'&view=FitH&toolbar=0';updateControls()}};
-    next.onclick=()=>{if(page<deckPages){page++;wrap.querySelector('iframe').src=deckPdf+'#page='+page+'&view=FitH&toolbar=0';updateControls()}};
-  }
-}
-
-// ── Custom podcast player ──
-function mountPodcast(container){
+// ── Podcast player ──
+function mountPodcast(el){
   const audio=new Audio(podcastSrc);
   audio.preload='metadata';
   let playing=false,duration=0,raf=0;
   const fmt=s=>{const m=Math.floor(s/60),sec=Math.floor(s%60);return m+':'+String(sec).padStart(2,'0')};
-  container.innerHTML=
+  el.innerHTML=
     '<div class="pod-card">'+
     '<div class="pod-top"><img class="pod-art" src="assets/milo.webp" alt=""><div class="pod-meta"><h3>'+esc(podcastTitle)+'</h3><small>The Civic Atlas Podcast</small></div></div>'+
     '<div class="pod-controls"><button class="pod-skip-back iconbtn" aria-label="Back 15 seconds">'+icon('reset',16)+'<span>15</span></button>'+
@@ -156,73 +53,141 @@ function mountPodcast(container){
     '<button class="pod-skip-fwd iconbtn" aria-label="Forward 15 seconds">'+icon('reset',16)+'<span>15</span></button></div>'+
     '<div class="pod-progress"><span class="pod-time">0:00</span>'+
     '<div class="pod-track"><div class="pod-fill"></div><input type="range" class="pod-seek" min="0" max="100" step="0.1" value="0" aria-label="Seek"></div>'+
-    '<span class="pod-duration">—:——</span></div>'+
+    '<span class="pod-duration">\u2014:\u2014\u2014</span></div>'+
     '<div class="pod-wave" aria-hidden="true">'+Array.from({length:48},(_,i)=>'<span style="--i:'+i+'"></span>').join('')+'</div>'+
     '<p class="media-caption">Does AI curation dictate government decisions? A deep dive into the governance principles, operational boundaries, and assurance standards that keep human officers in control.</p>'+
     '</div>';
-  const playBtn=container.querySelector('.pod-play');
-  const fill=container.querySelector('.pod-fill');
-  const seek=container.querySelector('.pod-seek');
-  const timeEl=container.querySelector('.pod-time');
-  const durEl=container.querySelector('.pod-duration');
-  const wave=container.querySelector('.pod-wave');
-  function tick(){
-    if(!playing)return;
-    const pct=duration?audio.currentTime/duration*100:0;
-    fill.style.width=pct+'%';seek.value=pct;
-    timeEl.textContent=fmt(audio.currentTime);
-    raf=requestAnimationFrame(tick);
-  }
+  const playBtn=el.querySelector('.pod-play'),fill=el.querySelector('.pod-fill'),seek=el.querySelector('.pod-seek'),timeEl=el.querySelector('.pod-time'),durEl=el.querySelector('.pod-duration'),wave=el.querySelector('.pod-wave');
+  function tick(){if(!playing)return;const pct=duration?audio.currentTime/duration*100:0;fill.style.width=pct+'%';seek.value=pct;timeEl.textContent=fmt(audio.currentTime);raf=requestAnimationFrame(tick)}
   function toggle(){
     if(playing){audio.pause();playing=false;cancelAnimationFrame(raf)}
     else{audio.play().catch(()=>{});playing=true;tick()}
-    playBtn.innerHTML=icon(playing?'pause':'play',22);
-    playBtn.setAttribute('aria-label',playing?'Pause':'Play');
-    wave.classList.toggle('active',playing);
+    playBtn.innerHTML=icon(playing?'pause':'play',22);playBtn.setAttribute('aria-label',playing?'Pause':'Play');wave.classList.toggle('active',playing);
   }
   audio.addEventListener('loadedmetadata',()=>{duration=audio.duration;durEl.textContent=fmt(duration)});
   audio.addEventListener('ended',()=>{playing=false;playBtn.innerHTML=icon('play',22);wave.classList.remove('active');cancelAnimationFrame(raf);fill.style.width='100%'});
   playBtn.onclick=toggle;
-  container.querySelector('.pod-skip-back').onclick=()=>{audio.currentTime=Math.max(0,audio.currentTime-15)};
-  container.querySelector('.pod-skip-fwd').onclick=()=>{audio.currentTime=Math.min(duration,audio.currentTime+15)};
+  el.querySelector('.pod-skip-back').onclick=()=>{audio.currentTime=Math.max(0,audio.currentTime-15)};
+  el.querySelector('.pod-skip-fwd').onclick=()=>{audio.currentTime=Math.min(duration,audio.currentTime+15)};
   seek.oninput=()=>{audio.currentTime=seek.value/100*duration;fill.style.width=seek.value+'%';timeEl.textContent=fmt(audio.currentTime)};
   return ()=>{audio.pause();cancelAnimationFrame(raf)};
 }
 
 // ── Main render ──
 export function renderMedia(main){
+  let infoIdx=0,deckPage=1,pdfDoc=null,deckCanvas=null,deckCtx=null,rendering=false;
+
   main.innerHTML=
     '<div class="media-hero"><div class="wrap media-hero-inner reveal-up">'+line('MEDIA & RESOURCES')+
     '<h1>Explore the<br><em>Series</em></h1><p>Video overview, seven original infographics, the Civic AI Blueprint slide deck, and a podcast on whether AI curation dictates government decisions.</p>'+
-    '<div class="media-hero-nav"><a href="#media-video">'+icon('play',15)+' Video</a><a href="#media-infographics">'+icon('layers',15)+' Infographics</a><a href="#media-deck">'+icon('file',15)+' Slide deck</a><a href="#media-podcast">'+icon('headset',15)+' Podcast</a></div>'+
     '</div></div>'+
-
     '<div class="wrap media-page">'+
 
     '<section class="media-section reveal-up" id="media-video"><div class="media-section-head">'+line('VIDEO')+'<h2>Series Overview</h2></div>'+
-    '<div class="media-video-wrap"><div class="media-video"><iframe src="https://www.youtube.com/embed/PwJBp9-U8dY?rel=0&modestbranding=1" title="Civic Atlas — AI Government &amp; Public Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>'+
-    '<p class="media-caption">A walkthrough of the complete Civic Atlas series — ten playbooks, the Northbridge flood simulator, and the portfolio capstone.</p></section>'+
+    '<div class="media-video-wrap"><div class="media-video"><iframe src="https://www.youtube.com/embed/PwJBp9-U8dY?rel=0&modestbranding=1" title="Civic Atlas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div></section>'+
 
-    '<section class="media-section reveal-up" id="media-infographics"><div class="media-section-head">'+line('INFOGRAPHICS · 7 ORIGINALS')+'<h2>Inside the Playbooks</h2><p class="media-caption" style="margin-top:4px">Swipe or use the arrows to browse the original Civic Atlas infographics.</p></div>'+
-    '<div class="info-viewer" id="info-viewer" role="region" aria-label="Infographic carousel"></div></section>'+
+    '<section class="media-section reveal-up" id="media-infographics"><div class="media-section-head">'+line('INFOGRAPHICS')+'<h2>Inside the Playbooks</h2></div>'+
+    '<div class="info-viewer" id="info-viewer"></div></section>'+
 
-    '<section class="media-section reveal-up" id="media-deck"><div class="media-section-head">'+line('SLIDE DECK · '+deckPages+' SLIDES')+'<h2>'+esc(deckTitle)+'</h2><p class="media-caption" style="margin-top:4px">Use the left and right controls or arrow keys to navigate one slide at a time.</p></div>'+
-    '<div class="deck-viewer" id="deck-viewer" role="region" aria-label="Slide deck viewer"></div></section>'+
+    '<section class="media-section reveal-up" id="media-deck"><div class="media-section-head">'+line('SLIDE DECK · '+deckPages+' SLIDES')+'<h2>'+esc(deckTitle)+'</h2></div>'+
+    '<div class="deck-viewer" id="deck-viewer"></div></section>'+
 
     '<section class="media-section reveal-up" id="media-podcast"><div class="media-section-head">'+line('PODCAST')+'<h2>'+esc(podcastTitle)+'</h2></div>'+
     '<div id="podcast-mount"></div></section>'+
 
     '</div>';
 
-  main.querySelectorAll('.media-hero-nav a').forEach(a=>a.addEventListener('click',e=>{
-    e.preventDefault();const el=document.querySelector(a.getAttribute('href'));
-    el?.scrollIntoView({behavior:reduced()?'instant':'smooth',block:'start'});
-  }));
+  // ── Infographics ──
+  function showInfo(){
+    const info=infographics[infoIdx];
+    const viewer=main.querySelector('#info-viewer');
+    viewer.innerHTML=
+      '<div class="info-display">'+
+      '<div class="info-img-wrap"><img src="assets/'+esc(info.file)+'" alt="'+esc(info.title)+'"></div>'+
+      '<div class="info-detail">'+
+      '<span class="minor-label">INFOGRAPHIC '+(infoIdx+1)+' OF '+infographics.length+'</span>'+
+      '<h3>'+esc(info.title)+'</h3>'+
+      '<p>'+esc(info.body)+'</p>'+
+      '<div class="info-nav">'+
+      '<button class="iconbtn" id="info-prev" '+(infoIdx===0?'disabled':'')+'>'+icon('left',18)+'</button>'+
+      '<span class="info-counter">'+(infoIdx+1)+' / '+infographics.length+'</span>'+
+      '<button class="iconbtn" id="info-next" '+(infoIdx===infographics.length-1?'disabled':'')+'>'+icon('chevron',18)+'</button>'+
+      '</div>'+
+      '<div class="info-dots">'+infographics.map((_,i)=>'<button class="info-dot'+(i===infoIdx?' active':'')+'" data-idx="'+i+'"></button>').join('')+'</div>'+
+      '</div></div>';
+    main.querySelector('#info-prev').onclick=function(){if(infoIdx>0){infoIdx--;showInfo()}};
+    main.querySelector('#info-next').onclick=function(){if(infoIdx<infographics.length-1){infoIdx++;showInfo()}};
+    viewer.querySelectorAll('[data-idx]').forEach(function(b){
+      b.onclick=function(){infoIdx=Number(this.dataset.idx);showInfo()};
+    });
+  }
+  showInfo();
 
-  mountInfoCarousel(main.querySelector('#info-viewer'));
-  mountDeck(main.querySelector('#deck-viewer'));
+  // ── Slide deck ──
+  const deckEl=main.querySelector('#deck-viewer');
+  deckEl.innerHTML=
+    '<div class="deck-canvas-wrap"><canvas id="deck-canvas"></canvas><div class="deck-loading" id="deck-loading">Loading slide deck\u2026</div></div>'+
+    '<div class="deck-controls">'+
+    '<button class="btn outline" id="deck-prev">'+icon('left',15)+' Previous</button>'+
+    '<span class="deck-counter" id="deck-counter">Slide 1 of '+deckPages+'</span>'+
+    '<button class="btn outline" id="deck-next">Next '+icon('chevron',15)+'</button>'+
+    '</div>'+
+    '<a class="text-link deck-download" href="'+deckPdf+'" target="_blank" rel="noopener">'+icon('download',15)+' Open full PDF '+icon('upRight',13)+'</a>';
+
+  deckCanvas=main.querySelector('#deck-canvas');
+  deckCtx=deckCanvas.getContext('2d');
+
+  function updateDeckControls(){
+    main.querySelector('#deck-prev').disabled=deckPage<=1;
+    main.querySelector('#deck-next').disabled=deckPage>=deckPages;
+    main.querySelector('#deck-counter').textContent='Slide '+deckPage+' of '+deckPages;
+  }
+
+  async function renderDeckPage(){
+    if(!pdfDoc||rendering)return;
+    rendering=true;
+    try{
+      const pg=await pdfDoc.getPage(deckPage);
+      const dpr=Math.min(window.devicePixelRatio||1,2);
+      const wrapW=main.querySelector('.deck-canvas-wrap').clientWidth-40;
+      const vp=pg.getViewport({scale:1});
+      const scale=(wrapW/vp.width)*dpr;
+      const sv=pg.getViewport({scale});
+      deckCanvas.width=sv.width;deckCanvas.height=sv.height;
+      deckCanvas.style.width=Math.round(sv.width/dpr)+'px';
+      deckCanvas.style.height=Math.round(sv.height/dpr)+'px';
+      await pg.render({canvasContext:deckCtx,viewport:sv}).promise;
+    }catch(e){console.warn('Render page failed:',e)}
+    rendering=false;
+    updateDeckControls();
+  }
+
+  main.querySelector('#deck-prev').onclick=function(){if(deckPage>1){deckPage--;renderDeckPage()}};
+  main.querySelector('#deck-next').onclick=function(){if(deckPage<deckPages){deckPage++;renderDeckPage()}};
+  updateDeckControls();
+
+  // Load pdf.js
+  (async function(){
+    try{
+      await import('./vendor/pdfjs/pdf.min.mjs');
+      const lib=globalThis.pdfjsLib;
+      if(!lib||!lib.getDocument)throw new Error('pdfjsLib not found');
+      lib.GlobalWorkerOptions.workerSrc=new URL('./vendor/pdfjs/pdf.worker.min.mjs',import.meta.url).href;
+      pdfDoc=await lib.getDocument(deckPdf).promise;
+      main.querySelector('#deck-loading').hidden=true;
+      renderDeckPage();
+    }catch(e){
+      console.warn('pdf.js failed:',e?.message);
+      // Fallback: show PDF in iframe
+      const wrap=main.querySelector('.deck-canvas-wrap');
+      wrap.innerHTML='<iframe src="'+deckPdf+'#page=1&view=FitH&toolbar=0" style="width:100%;height:100%;border:0;min-height:500px" title="'+esc(deckTitle)+'"></iframe>';
+      main.querySelector('#deck-prev').onclick=function(){if(deckPage>1){deckPage--;wrap.querySelector('iframe').src=deckPdf+'#page='+deckPage+'&view=FitH&toolbar=0';updateDeckControls()}};
+      main.querySelector('#deck-next').onclick=function(){if(deckPage<deckPages){deckPage++;wrap.querySelector('iframe').src=deckPdf+'#page='+deckPage+'&view=FitH&toolbar=0';updateDeckControls()}};
+    }
+  })();
+
+  // ── Podcast ──
   const cleanPodcast=mountPodcast(main.querySelector('#podcast-mount'));
   observeSections(main);
-
   return cleanPodcast;
 }
