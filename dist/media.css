@@ -42,6 +42,8 @@
 .info-display{display:grid;grid-template-columns:1.3fr 1fr;min-height:440px}
 .info-img-wrap{background:linear-gradient(135deg,#142924,#1c3830);display:flex;align-items:center;justify-content:center;padding:24px;overflow:hidden;position:relative}
 .info-img-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,20,18,.25));pointer-events:none}
+.info-zoom-btn{position:absolute;bottom:14px;right:14px;z-index:2;width:36px;height:36px;border-radius:6px;background:rgba(10,28,24,.75);color:#e8dfc8;border:1px solid rgba(200,190,160,.3);backdrop-filter:blur(4px);display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s}
+.info-zoom-btn:hover{background:rgba(30,58,48,.9);border-color:rgba(232,186,119,.6)}
 .info-img-wrap img{width:100%;height:100%;object-fit:contain;border-radius:6px;max-height:500px;filter:drop-shadow(0 8px 24px rgba(0,0,0,.3));transition:transform .4s cubic-bezier(.22,1,.36,1)}
 .info-img-wrap:hover img{transform:scale(1.02)}
 .info-detail{padding:clamp(24px,3.5vw,44px);display:flex;flex-direction:column;justify-content:center}
@@ -121,3 +123,14 @@
   .pod-skip-back,.pod-skip-fwd{width:36px;height:36px}
   .pod-controls{gap:16px}
 }
+
+/* ── Lightbox ── */
+.info-lightbox{position:fixed;inset:0;z-index:999;background:rgba(6,14,12,.92);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .25s ease}
+.info-lightbox.lb-open{opacity:1}
+.info-lightbox-inner{display:flex;flex-direction:column;align-items:center;max-width:100%;max-height:100%;padding:16px}
+.info-lightbox-inner img{max-width:90vw;max-height:80vh;object-fit:contain;cursor:grab;touch-action:none;user-select:none;border-radius:6px;box-shadow:0 12px 48px rgba(0,0,0,.5);transition:transform .05s linear;will-change:transform}
+.info-lightbox-inner img:active{cursor:grabbing}
+.info-lightbox-bar{display:flex;align-items:center;gap:16px;margin-top:16px}
+.info-lightbox-bar span{font-size:12px;color:#8aaa96;font-family:var(--mono)}
+.info-lightbox-bar .btn{color:#e8dfc8;border-color:rgba(200,190,160,.4)}
+.info-lightbox-bar .btn:hover{background:rgba(40,70,55,.7);border-color:#e8ba77}

@@ -103,7 +103,7 @@ export function renderMedia(main){
     const viewer=main.querySelector('#info-viewer');
     viewer.innerHTML=
       '<div class="info-display">'+
-      '<div class="info-img-wrap"><img src="assets/'+esc(info.file)+'" alt="'+esc(info.title)+'"></div>'+
+      '<div class="info-img-wrap"><img src="assets/'+esc(info.file)+'" alt="'+esc(info.title)+'"><button class="info-zoom-btn" aria-label="Zoom in">'+icon('plus',18)+'</button></div>'+
       '<div class="info-detail">'+
       '<span class="minor-label">INFOGRAPHIC '+(infoIdx+1)+' OF '+infographics.length+'</span>'+
       '<h3>'+esc(info.title)+'</h3>'+
@@ -120,6 +120,35 @@ export function renderMedia(main){
     viewer.querySelectorAll('[data-idx]').forEach(function(b){
       b.onclick=function(){infoIdx=Number(this.dataset.idx);showInfo()};
     });
+    // Zoom: click image or zoom button opens lightbox
+    var img=viewer.querySelector('.info-img-wrap img');
+    var zoomBtn=viewer.querySelector('.info-zoom-btn');
+    function openZoom(){
+      var overlay=document.createElement('div');
+      overlay.className='info-lightbox';
+      overlay.innerHTML='<div class="info-lightbox-inner"><img src="assets/'+esc(info.file)+'" alt="'+esc(info.title)+'"><div class="info-lightbox-bar"><button class="btn outline" id="lb-close">'+icon('close',16)+' Close</button><span>Scroll or pinch to zoom \u00b7 Drag to pan</span></div></div>';
+      document.body.appendChild(overlay);
+      var lbImg=overlay.querySelector('img');
+      var scale=1,tx=0,ty=0,dragging=false,sx=0,sy=0,pinchDist=0;
+      function apply(){lbImg.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')'}
+      overlay.querySelector('#lb-close').onclick=function(){overlay.remove()};
+      overlay.addEventListener('click',function(e){if(e.target===overlay||e.target===overlay.querySelector('.info-lightbox-inner'))overlay.remove()});
+      document.addEventListener('keydown',function esc(e){if(e.key==='Escape'){overlay.remove();document.removeEventListener('keydown',esc)}});
+      lbImg.addEventListener('wheel',function(e){e.preventDefault();var d=e.deltaY>0?0.9:1.1;scale=Math.max(0.5,Math.min(8,scale*d));apply()},{passive:false});
+      lbImg.addEventListener('pointerdown',function(e){if(e.button&&e.button!==0)return;dragging=true;sx=e.clientX-tx;sy=e.clientY-ty;lbImg.setPointerCapture(e.pointerId)});
+      lbImg.addEventListener('pointermove',function(e){if(!dragging)return;tx=e.clientX-sx;ty=e.clientY-sy;apply()});
+      lbImg.addEventListener('pointerup',function(){dragging=false});
+      lbImg.addEventListener('pointercancel',function(){dragging=false});
+      // Pinch zoom for touch
+      var pointers=new Map();
+      overlay.addEventListener('pointerdown',function(e){pointers.set(e.pointerId,[e.clientX,e.clientY]);if(pointers.size===2){var pts=[...pointers.values()];pinchDist=Math.hypot(pts[0][0]-pts[1][0],pts[0][1]-pts[1][1])}});
+      overlay.addEventListener('pointermove',function(e){if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,[e.clientX,e.clientY]);if(pointers.size===2){var pts=[...pointers.values()];var dist=Math.hypot(pts[0][0]-pts[1][0],pts[0][1]-pts[1][1]);if(pinchDist>10){scale=Math.max(0.5,Math.min(8,scale*(dist/pinchDist)));apply()}pinchDist=dist}});
+      overlay.addEventListener('pointerup',function(e){pointers.delete(e.pointerId);if(pointers.size<2)pinchDist=0});
+      setTimeout(function(){overlay.classList.add('lb-open')},10);
+    }
+    img.style.cursor='zoom-in';
+    img.onclick=openZoom;
+    zoomBtn.onclick=openZoom;
   }
   showInfo();
 
