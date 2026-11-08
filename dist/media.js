@@ -1,25 +1,34 @@
 import {icon,esc,line} from './ui.js';
 
 const infographics=[
-  {file:'media-strategy-p9.jpg',title:'The Proposal Ranking Framework',volume:'Volume 1 — Government Strategy',
-   body:'How should a city compare competing AI proposals? This framework scores candidates across six dimensions: resident pain (25%), volume (15%), evidence readiness (20%), risk and reversibility (20%), equity (10%) and deliverability (10%). Frontline staff participate in scoring, and dissent is preserved with the result. A proposal that fails authority, fairness or reversibility is withdrawn before supplier engagement — no matter how strong the benefit case.'},
-  {file:'media-citizen-services-p10.jpg',title:'Designing the Digital Front Door',volume:'Volume 2 — Citizen Services',
-   body:'When a resident starts a housing enquiry online, switches to the phone, and is asked to explain everything again, the front door has failed. This page maps the source-grounded answer model: what follows a resident across channels, what the system can and cannot claim to know, and how a completed journey is measured. The goal is not automation — it is a door the resident can actually finish using.'},
-  {file:'media-benefits-casework-p8.jpg',title:'Tracing Extracted Evidence to Its Source',volume:'Volume 3 — Benefits & Casework',
-   body:'An extraction tool reads a handwritten income figure that conflicts with the case record. Before the officer can act, they need to see the original document, the extracted value, and the confidence of the match. This infographic shows how each field is traced back to its source page, how conflicts surface in the officer summary, and how a successful appeal becomes a correction that flows back through the system.'},
-  {file:'media-emergency-services-p15.jpg',title:'Surge Handling Under Pressure',volume:'Volume 7 — Emergency Services',
-   body:'When seconds count, the question is not whether AI can help — it is whether the human commander retains authority. This page from the Emergency Services playbook maps the surge-handling protocol: how incident locations show uncertainty, where the human decision sits in the dispatch chain, and what happens when records must be reconciled after a fallback drill. The Northbridge flood simulator brings this model to life with real NYC 311 data.'},
-  {file:'media-procurement-supplier-p20.jpg',title:'Testing a Supplier Before You Sign',volume:'Volume 6 — Procurement & Supplier AI',
-   body:'Three suppliers submit strong bids for a document-reading service. The evaluation panel must avoid anchoring on the first demo. This framework sequences bid evaluation to protect independence: technical assessment before commercial terms, the authority\'s own test cases before the supplier\'s chosen examples, and a documented exit plan before contract award. Can the service continue if the supplier leaves tomorrow?'},
-  {file:'media-data-records-p11.jpg',title:'Connecting Records Without Losing the Person',volume:'Volume 8 — Data & Records',
-   body:'Two people with similar names and a shared address appear as a likely match. One service has already reused a fact from the other\'s record. This infographic distinguishes a proposed link from an authorised match, maps the purpose and provenance of each reused field, and shows how a correction in one system must propagate to every downstream record. The person behind the data has a right to be accurately represented.'},
-  {file:'media-capstone-p15.jpg',title:'Portfolio Assurance — The Six Gates',volume:'Volume 10 — Capstone',
-   body:'Individual services may pass their own reviews while the cross-department journey fails. The portfolio capstone walks through six assurance gates: Count the actual inventory, Classify each use by risk tier, assemble the Evidence file, Test the resident journey end to end, Remediate weak uses, and Sign the portfolio statement with named owners and open findings. No gate can be skipped. The signed statement publishes what remains unresolved.'}
+  {file:'Civic_Atlas_AI_Government_Framework.jpg',
+   title:'AI Government & Public Services Framework',
+   body:'The complete Civic Atlas framework mapped across all ten volumes. Each playbook volume is positioned around the core governance principle: AI systems only prepare, check, extract, and summarise data — human officers retain absolute statutory authority. The outer ring connects strategy mandates and portfolio risk tiers to the six-gate assurance standard, while the centre shows how operational tools like the flood simulator, Milo AI agent, and applied field cases bring the framework to life.'},
+  {file:'AI_Public_Service_Governance_Framework.jpg',
+   title:'Governance & Operational Framework',
+   body:'This infographic divides the framework into two hemispheres. On the left, core governance and mandatory boundaries: AI prepares while humans decide, officers retain override rights, and mandatory stop lists prevent automation of eligibility grants, benefit cuts, and legal enforcement. On the right, operational focus and portfolio assurance: target back-office preparation tasks like document extraction and mapping, test resident journeys end to end, and rehearse vendor exit strategies to maintain data portability.'},
+  {file:'AI_Public_Services_Assurance_Framework.jpg',
+   title:'Operational Assurance Framework',
+   body:'The master reference for the entire series. Strategic operating principles run down the left column — human decisions only, design for failure, end-to-end journey testing, and transparent residual risk. The ten playbook volumes are mapped with their core mandates. Below, the prohibited automations stop list names what must never be automated, and the six-gate portfolio assurance standard traces the full path from CP0 Inventory Count through CP5 Sign and Publish.'},
+  {file:'Architecture_of_Responsible_AI_Diagram.jpg',
+   title:'Architecture of Responsible AI in Public Services',
+   body:'A unified architecture showing how governance principles, operational boundaries, and assurance gates connect across government service lines. The left wing establishes four core principles: AI prepares while humans decide, lock fail-safe stop controls, trace claims to sources, and protect staff override rights. The centre maps domain service execution from front-door answers through document verification and identity matching. The right wing details the capstone assurance framework from inventory count through journey testing to signed publication.'},
+  {file:'Civic_AI_Governance_Framework_Overview.jpg',
+   title:'AI Strategy & Public Service Governance',
+   body:'A panoramic view of the ten-volume series arranged around a central governance hub. Each volume is represented as an illuminated panel showing its key metric — 38% service enquiry reduction, 19-to-4-day planning acceleration, 94-to-61-second dispatch improvement. The lower section lists all ten volumes with their core operational domains, from strategy mandates through to capstone assurance. The foundation principle: AI systems only prepare, check, extract, and summarise — human officers retain absolute statutory authority.'},
+  {file:'Civic_Atlas_Government_AI_Infographic.jpg',
+   title:'The Journey to Responsible Government AI',
+   body:'Six operational domains mapped across the public service landscape. Digital front-door intake shows grounded source answers with mandatory visible citations and seamless human handoff. Benefits and casework assessment traces layered document extraction through mandated human signature. Emergency command and triage displays uncertainty radius alongside human dispatch authority. Interoperable data governance queues proposed linkages for human-stewarded review. The municipal AI portfolio scorecard at the base tracks governance metrics: registered AI uses, inventory accuracy, source-cited and signed decisions, zero lost context, and full downstream propagation.'},
+  {file:'Civic_Atlas_Public_AI_Framework.jpg',
+   title:'The Master Framework for AI in Public Services',
+   body:'The most comprehensive single view of the Civic Atlas methodology. The ten sector playbook pillars rise from the centre — from planning time-to-valid through standardised voter engine validation, bid independence scoring, dispatch-ready time measurement, to appeals overture cause analysis. Below, core operating doctrine establishes non-negotiable boundaries: qualified human officers retain sole authority, enforce mandatory stop lists, protect one-action overrides, and trace every claim to evidence. Every sponsor sentence is a dated, verifiable administrative record.'}
 ];
 
-const deckPdf='/playbooks/ai-government-strategy-playbook.pdf';
-const deckTitle='The AI Government Strategy Playbook';
-const deckPages=32;
+const deckPdf='assets/The_Civic_AI_Blueprint.pdf';
+const deckTitle='The Civic AI Blueprint';
+const deckPages=21;
+const podcastSrc='assets/Does_AI_Curation_Dictate_Government_Decisions.m4a';
+const podcastTitle='Does AI Curation Dictate Government Decisions?';
 const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ── Scroll reveal observer ──
@@ -46,7 +55,7 @@ function mountInfoCarousel(container){
       container.innerHTML=
         '<div class="info-slide '+(reduced()?'':'slide-in-'+(dir>0?'right':'left'))+'">'+
         '<div class="info-display"><div class="info-img-wrap"><img src="assets/'+esc(info.file)+'" alt="'+esc(info.title)+'" draggable="false"></div>'+
-        '<div class="info-detail"><span class="minor-label">'+esc(info.volume).toUpperCase()+'</span>'+
+        '<div class="info-detail"><span class="minor-label">INFOGRAPHIC '+(idx+1)+' OF '+infographics.length+'</span>'+
         '<h3>'+esc(info.title)+'</h3><p>'+esc(info.body)+'</p>'+
         '<div class="info-nav"><button class="iconbtn info-prev" aria-label="Previous" '+(idx===0?'disabled':'')+'>'+icon('left',18)+'</button>'+
         '<span class="info-counter">'+(idx+1)+' / '+infographics.length+'</span>'+
@@ -61,14 +70,12 @@ function mountInfoCarousel(container){
     container.querySelector('.info-prev')?.addEventListener('click',()=>go(idx-1,-1));
     container.querySelector('.info-next')?.addEventListener('click',()=>go(idx+1,1));
     container.querySelectorAll('.info-dot').forEach(b=>b.addEventListener('click',()=>go(Number(b.dataset.dot))));
-    // Touch / pointer swipe
     const track=container.querySelector('.info-display');
     if(!track)return;
     track.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&e.button!==0)return;startX=e.clientX;dragging=true;track.setPointerCapture(e.pointerId)});
     track.addEventListener('pointerup',e=>{if(!dragging)return;dragging=false;const dx=e.clientX-startX;if(Math.abs(dx)>40){dx<0?go(idx+1,1):go(idx-1,-1)}});
     track.addEventListener('pointercancel',()=>{dragging=false});
   }
-  // Keyboard
   container.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')go(idx-1,-1);else if(e.key==='ArrowRight')go(idx+1,1)});
   container.setAttribute('tabindex','0');
   render(0);
@@ -78,7 +85,7 @@ function mountInfoCarousel(container){
 async function mountDeck(container){
   let page=1,pdfDoc=null,rendering=false,canvas=null,ctx=null;
   container.innerHTML=
-    '<div class="deck-canvas-wrap"><canvas class="deck-canvas"></canvas><div class="deck-loading">Loading deck…</div></div>'+
+    '<div class="deck-canvas-wrap"><canvas class="deck-canvas"></canvas><div class="deck-loading">Loading slide deck…</div></div>'+
     '<div class="deck-controls"><button class="btn outline deck-prev">'+icon('left',15)+' Previous</button>'+
     '<span class="deck-counter"></span>'+
     '<button class="btn outline deck-next">Next '+icon('chevron',15)+'</button></div>'+
@@ -91,7 +98,7 @@ async function mountDeck(container){
   const loading=container.querySelector('.deck-loading');
   function updateControls(){
     prev.disabled=page<=1;next.disabled=page>=deckPages;
-    counter.textContent='Page '+page+' of '+deckPages;
+    counter.textContent='Slide '+page+' of '+deckPages;
   }
   async function renderPage(){
     if(!pdfDoc||rendering)return;
@@ -100,8 +107,8 @@ async function mountDeck(container){
     try{
       const pg=await pdfDoc.getPage(page);
       const dpr=Math.min(window.devicePixelRatio||1,2);
-      const vp=pg.getViewport({scale:1});
       const wrapW=container.querySelector('.deck-canvas-wrap').clientWidth-2;
+      const vp=pg.getViewport({scale:1});
       const scale=(wrapW/vp.width)*dpr;
       const sv=pg.getViewport({scale});
       canvas.width=sv.width;canvas.height=sv.height;
@@ -115,7 +122,6 @@ async function mountDeck(container){
   }
   prev.onclick=()=>{if(page>1){page--;renderPage()}};
   next.onclick=()=>{if(page<deckPages){page++;renderPage()}};
-  // Keyboard nav
   container.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'&&page>1){page--;renderPage()}else if(e.key==='ArrowRight'&&page<deckPages){page++;renderPage()}});
   container.setAttribute('tabindex','0');
   updateControls();
@@ -126,23 +132,25 @@ async function mountDeck(container){
     loading.hidden=true;
     renderPage();
   }catch(e){
-    loading.textContent='Could not load the PDF viewer.';
+    loading.textContent='Loading PDF viewer…';
     // Fallback to iframe
-    container.querySelector('.deck-canvas-wrap').innerHTML='<iframe src="'+deckPdf+'#page=1&view=FitH&toolbar=0" style="width:100%;height:100%;border:0" title="'+esc(deckTitle)+'"></iframe>';
-    prev.onclick=()=>{if(page>1){page--;container.querySelector('iframe').src=deckPdf+'#page='+page;updateControls()}};
-    next.onclick=()=>{if(page<deckPages){page++;container.querySelector('iframe').src=deckPdf+'#page='+page;updateControls()}};
+    const wrap=container.querySelector('.deck-canvas-wrap');
+    wrap.innerHTML='<iframe src="'+deckPdf+'#page=1&view=FitH&toolbar=0" class="deck-iframe" title="'+esc(deckTitle)+'"></iframe>';
+    loading.hidden=true;
+    prev.onclick=()=>{if(page>1){page--;wrap.querySelector('iframe').src=deckPdf+'#page='+page+'&view=FitH&toolbar=0';updateControls()}};
+    next.onclick=()=>{if(page<deckPages){page++;wrap.querySelector('iframe').src=deckPdf+'#page='+page+'&view=FitH&toolbar=0';updateControls()}};
   }
 }
 
 // ── Custom podcast player ──
 function mountPodcast(container){
-  const audio=new Audio('assets/podcast-civic-atlas.m4a');
+  const audio=new Audio(podcastSrc);
   audio.preload='metadata';
   let playing=false,duration=0,raf=0;
   const fmt=s=>{const m=Math.floor(s/60),sec=Math.floor(s%60);return m+':'+String(sec).padStart(2,'0')};
   container.innerHTML=
     '<div class="pod-card">'+
-    '<div class="pod-top"><img class="pod-art" src="assets/milo.webp" alt=""><div class="pod-meta"><h3>Series Deep Dive</h3><small>The Civic Atlas Podcast · George</small></div></div>'+
+    '<div class="pod-top"><img class="pod-art" src="assets/milo.webp" alt=""><div class="pod-meta"><h3>'+esc(podcastTitle)+'</h3><small>The Civic Atlas Podcast</small></div></div>'+
     '<div class="pod-controls"><button class="pod-skip-back iconbtn" aria-label="Back 15 seconds">'+icon('reset',16)+'<span>15</span></button>'+
     '<button class="pod-play" aria-label="Play">'+icon('play',22)+'</button>'+
     '<button class="pod-skip-fwd iconbtn" aria-label="Forward 15 seconds">'+icon('reset',16)+'<span>15</span></button></div>'+
@@ -150,7 +158,7 @@ function mountPodcast(container){
     '<div class="pod-track"><div class="pod-fill"></div><input type="range" class="pod-seek" min="0" max="100" step="0.1" value="0" aria-label="Seek"></div>'+
     '<span class="pod-duration">—:——</span></div>'+
     '<div class="pod-wave" aria-hidden="true">'+Array.from({length:48},(_,i)=>'<span style="--i:'+i+'"></span>').join('')+'</div>'+
-    '<p class="media-caption">From the investment panel to the portfolio capstone — a guided walk through all ten volumes, the flood simulator, and the assurance framework.</p>'+
+    '<p class="media-caption">Does AI curation dictate government decisions? A deep dive into the governance principles, operational boundaries, and assurance standards that keep human officers in control.</p>'+
     '</div>';
   const playBtn=container.querySelector('.pod-play');
   const fill=container.querySelector('.pod-fill');
@@ -185,7 +193,7 @@ function mountPodcast(container){
 export function renderMedia(main){
   main.innerHTML=
     '<div class="media-hero"><div class="wrap media-hero-inner reveal-up">'+line('MEDIA & RESOURCES')+
-    '<h1>Explore the<br><em>Series</em></h1><p>Video overview, original infographics from the ten playbooks, the strategy slide deck, and the Civic Atlas podcast.</p>'+
+    '<h1>Explore the<br><em>Series</em></h1><p>Video overview, seven original infographics, the Civic AI Blueprint slide deck, and a podcast on whether AI curation dictates government decisions.</p>'+
     '<div class="media-hero-nav"><a href="#media-video">'+icon('play',15)+' Video</a><a href="#media-infographics">'+icon('layers',15)+' Infographics</a><a href="#media-deck">'+icon('file',15)+' Slide deck</a><a href="#media-podcast">'+icon('headset',15)+' Podcast</a></div>'+
     '</div></div>'+
 
@@ -195,18 +203,17 @@ export function renderMedia(main){
     '<div class="media-video-wrap"><div class="media-video"><iframe src="https://www.youtube.com/embed/PwJBp9-U8dY?rel=0&modestbranding=1" title="Civic Atlas — AI Government &amp; Public Services" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>'+
     '<p class="media-caption">A walkthrough of the complete Civic Atlas series — ten playbooks, the Northbridge flood simulator, and the portfolio capstone.</p></section>'+
 
-    '<section class="media-section reveal-up" id="media-infographics"><div class="media-section-head">'+line('INFOGRAPHICS · 7 PAGES')+'<h2>Inside the Playbooks</h2><p class="media-caption" style="margin-top:4px">Swipe or use the arrows to browse original pages from across the series.</p></div>'+
+    '<section class="media-section reveal-up" id="media-infographics"><div class="media-section-head">'+line('INFOGRAPHICS · 7 ORIGINALS')+'<h2>Inside the Playbooks</h2><p class="media-caption" style="margin-top:4px">Swipe or use the arrows to browse the original Civic Atlas infographics.</p></div>'+
     '<div class="info-viewer" id="info-viewer" role="region" aria-label="Infographic carousel"></div></section>'+
 
-    '<section class="media-section reveal-up" id="media-deck"><div class="media-section-head">'+line('SLIDE DECK · 32 PAGES')+'<h2>'+esc(deckTitle)+'</h2></div>'+
+    '<section class="media-section reveal-up" id="media-deck"><div class="media-section-head">'+line('SLIDE DECK · '+deckPages+' SLIDES')+'<h2>'+esc(deckTitle)+'</h2><p class="media-caption" style="margin-top:4px">Use the left and right controls or arrow keys to navigate one slide at a time.</p></div>'+
     '<div class="deck-viewer" id="deck-viewer" role="region" aria-label="Slide deck viewer"></div></section>'+
 
-    '<section class="media-section reveal-up" id="media-podcast"><div class="media-section-head">'+line('PODCAST')+'<h2>The Civic Atlas Podcast</h2></div>'+
+    '<section class="media-section reveal-up" id="media-podcast"><div class="media-section-head">'+line('PODCAST')+'<h2>'+esc(podcastTitle)+'</h2></div>'+
     '<div id="podcast-mount"></div></section>'+
 
     '</div>';
 
-  // Smooth scroll for hero nav
   main.querySelectorAll('.media-hero-nav a').forEach(a=>a.addEventListener('click',e=>{
     e.preventDefault();const el=document.querySelector(a.getAttribute('href'));
     el?.scrollIntoView({behavior:reduced()?'instant':'smooth',block:'start'});
